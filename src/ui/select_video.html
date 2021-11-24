@@ -1,0 +1,109 @@
+<sly-card
+        class="custom-sly-card-border-radius div-without-paddings mb10"
+        title="Select Video"
+        subtitle="select video for analyse"
+        style="width: 100%">
+    {{state.selectedRow}}
+    <sly-table :content="data.videosTable"
+               :options="{perPage: 10, pageSizes: 10}"
+               @input="state.selectedRowId = $event.selectedRowData.id; command('select_video')">
+
+    </sly-table>
+
+    <!--    <el-table-->
+    <!--            :data="data.videosTable"-->
+    <!--            border-->
+
+    <!--            style="width: 100%"-->
+    <!--            highlight-current-row-->
+    <!--            @current-change="command('row_selected')"-->
+    <!--            max-height="250">-->
+    <!--        <el-table-column-->
+
+    <!--                prop="id"-->
+    <!--                sortable-->
+    <!--                fixed-->
+    <!--                label="VIDEO ID"-->
+    <!--                width="120px"-->
+    <!--        >-->
+    <!--            <template scope="scope">-->
+    <!--                {{scope.row.id}}-->
+    <!--            </template>-->
+    <!--        </el-table-column>-->
+    <!--        <el-table-column-->
+    <!--                prop="name"-->
+    <!--                sortable-->
+    <!--                fixed-->
+    <!--                label="VIDEO NAME"-->
+    <!--                width="150px">-->
+    <!--            <template scope="scope">-->
+    <!--                {{scope.row.name}}-->
+    <!--            </template>-->
+    <!--        </el-table-column>-->
+    <!--        <el-table-column-->
+    <!--                prop="tagged_frames"-->
+    <!--                sortable-->
+    <!--                label="TAGGED FRAMES"-->
+    <!--                width="180px">-->
+    <!--            <template scope="scope">-->
+    <!--                {{scope.row.tagged_frames}}-->
+    <!--            </template>-->
+    <!--        </el-table-column>-->
+    <!--        <el-table-column-->
+    <!--                prop="untagged_frames"-->
+    <!--                sortable-->
+    <!--                label="UNTAGGED FRAMES"-->
+    <!--                width="200px">-->
+    <!--            <template scope="scope">-->
+    <!--                {{scope.row.untagged_frames}}-->
+    <!--            </template>-->
+    <!--        </el-table-column>-->
+    <!--        <el-table-column-->
+    <!--                prop="tags_used"-->
+    <!--                sortable-->
+    <!--                label="TAGS USED"-->
+    <!--                width="150px">-->
+    <!--            <template scope="scope">-->
+    <!--                {{scope.row.tags_used}}-->
+    <!--            </template>-->
+    <!--        </el-table-column>-->
+    <!--        <el-table-column-->
+    <!--                prop="total_frames"-->
+    <!--                sortable-->
+    <!--                label="TOTAL FRAMES"-->
+    <!--                width="180px">-->
+    <!--            <template scope="scope">-->
+    <!--                {{scope.row.total_frames}}-->
+    <!--            </template>-->
+    <!--        </el-table-column>-->
+    <!--        <el-table-column-->
+    <!--                prop="video_duration"-->
+    <!--                sortable-->
+    <!--                label="VIDEO DURATION"-->
+    <!--                width="180px">-->
+    <!--            <template scope="scope">-->
+    <!--                {{scope.row.video_duration}}-->
+    <!--            </template>-->
+    <!--        </el-table-column>-->
+    <!--        <el-table-column-->
+    <!--                prop="tagged_frames_percent"-->
+    <!--                sortable-->
+    <!--                label="TAGGED FRAMES %"-->
+    <!--                width="200px">-->
+    <!--            <template scope="scope">-->
+    <!--                {{scope.row.tagged_frames_percent}}-->
+    <!--            </template>-->
+    <!--        </el-table-column>-->
+    <!--        <el-table-column-->
+    <!--                prop="untagged_frames_percent"-->
+    <!--                sortable-->
+    <!--                label="UNTAGGED FRAMES %"-->
+    <!--                width="210px">-->
+    <!--            <template scope="scope">-->
+    <!--                {{scope.row.untagged_frames_percent}}-->
+    <!--            </template>-->
+    <!--        </el-table-column>-->
+
+    <!--    </el-table>-->
+
+</sly-card>

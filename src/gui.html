@@ -1,0 +1,56 @@
+<div id="action-recognition-stats">
+    <sly-style>
+        #action-recognition-stats .custom-sly-card-border-radius {
+        border-radius: 18px;
+        padding: 16px 20px;
+        }
+
+        #action-recognition-stats .beautiful-table {
+        border-collapse: collapse;
+        overflow-x: scroll;
+
+        }
+        #action-recognition-stats .beautiful-table tr:nth-child(2n) { background-color: #f6f8fa; }
+        #action-recognition-stats .beautiful-table td, .beautiful-table th {
+        border: 1px solid #dfe2e5;
+        padding: 6px 13px;
+        text-align: center;
+        line-height: 20px;
+        }
+        #action-recognition-stats .beautiful-table.al td, .beautiful-table.al th {
+        text-align: left;
+        }
+
+
+        #action-recognition-stats .disable_overflow_by_x_for_table .el-table__body-wrapper {
+        overflow-x:hidden;
+        }
+
+        #action-recognition-stats .hide-percentage-from-progress .el-progress__text {
+        display: none;
+        }
+
+
+        #action-recognition-stats .custom-collapse {
+        cursor:pointer;
+        transition: all 0.2s;
+
+
+        }
+
+        #action-recognition-stats .custom-collapse:hover {
+
+        color: #039aff;
+        }
+
+        #action-recognition-stats .div-without-paddings .content {
+        padding:0 0;
+
+        }
+    </sly-style>
+
+    {% include 'src/ui/input_project.html' %}
+    {% include 'src/ui/select_video.html' %}
+
+
+</div>
