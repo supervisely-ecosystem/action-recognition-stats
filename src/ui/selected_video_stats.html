@@ -1,0 +1,94 @@
+<sly-card
+        class="custom-sly-card-border-radius div-without-paddings mb10"
+        title="General Video Statistics"
+        subtitle="statistics for selected video"
+        style="width: 100%">
+
+    <div v-if="state.selectedVideo"
+         style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between">
+        <div>
+            <sly-field
+                    title="Video Stats"
+                    description="general statistics for video"
+                    style=""
+            >
+                <sly-icon slot="icon" :options="{ color: '#ffffff', bgColor: '#1fa0ff', rounded: false }">
+                    <i class="zmdi zmdi-videocam"></i>
+
+                </sly-icon>
+            </sly-field>
+            <div style="border-left: 2px solid #1fa0ff; padding: 2px 8px">
+
+                <div v-for="v,k in state.selectedVideo.generalStats"
+                     style="word-break: break-all;">
+
+                    <div v-if="v != null" style="margin: 8px 0">
+                        <b>{{k}}</b>: <span>{{v}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <sly-field
+                    title="Video Tags"
+                    description="tags: values on video"
+                    style=""
+            >
+                <sly-icon slot="icon" :options="{ color: '#ffffff', bgColor: '#9702db', rounded: false }">
+                    <i class="zmdi zmdi-tag"></i>
+
+                </sly-icon>
+            </sly-field>
+            <div style="border-left: 2px solid #9702db; padding: 2px 8px">
+                <div v-for="current_tag in state.selectedVideo.tagsOnVideo">
+                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between">
+                            <span style="overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 13px">
+                                <i class="zmdi zmdi-circle mr5" :style="{color: current_tag.color}"></i>
+                                <b>{{current_tag.name}}</b>: {{current_tag.value}}
+                            </span>
+                    </div>
+
+                    <hr v-if="current_tag != state.selectedVideo.tagsOnVideo[state.selectedVideo.tagsOnVideo.length - 1]"
+                        style="border: 0; margin: 6px 0; border-top: 2px dashed rgba(0,0,0,.12);"/>
+
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <sly-field
+                    title="Annotators"
+                    description="video annotators"
+                    style=""
+            >
+                <sly-icon slot="icon" :options="{ color: '#ffffff', bgColor: '#fd8403', rounded: false }">
+                    <i class="zmdi zmdi-airline-seat-recline-normal"></i>
+
+                </sly-icon>
+            </sly-field>
+            <div style="border-left: 2px solid #fd8403; padding: 2px 8px">
+                <span>not implemented</span>
+            </div>
+
+        </div>
+
+        <div>
+            <sly-field
+                    title="Reviewers"
+                    description="video reviewers"
+                    style=""
+            >
+                <sly-icon slot="icon" :options="{ color: '#ffffff', bgColor: 'gold', rounded: false }">
+                    <i class="zmdi zmdi-airline-seat-recline-normal"></i>
+
+                </sly-icon>
+            </sly-field>
+            <div style="border-left: 2px solid gold; padding: 2px 8px">
+
+                <span>not implemented</span>
+            </div>
+
+        </div>
+    </div>
+</sly-card>

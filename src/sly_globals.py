@@ -43,7 +43,7 @@ ui_sources_dir = os.path.join(source_path, "ui")  # /action-recognition-stats/sr
 sly.logger.info(f"UI source directory: {ui_sources_dir}")
 sys.path.append(ui_sources_dir)
 
-
+video_id = None
 videos2annotations = {}
 
 tag_frame_ranges = {}

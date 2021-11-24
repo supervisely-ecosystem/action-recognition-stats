@@ -1,14 +1,14 @@
 <sly-card
         class="custom-sly-card-border-radius div-without-paddings mb10"
-        title="Select Video"
-        subtitle="select video for analyse"
+        title="Select Tags"
+        subtitle="select tags for analyse"
         style="width: 100%">
     {{state.selectedRow}}
-    <sly-table :content="data.videosTable"
-               :options="{perPage: 10, pageSizes: 10}"
-               @input="state.selectedVideoId = $event.selectedRowData.id; command('select_video')">
+<!--    <sly-table :content="data.tagsTable"-->
+<!--               :options="{perPage: 10, pageSizes: 10}"-->
+<!--               @input="state.selectedVideoId = $event.selectedRowData.id; command('select_video')">-->
 
-    </sly-table>
+<!--    </sly-table>-->
 
     <!--    <el-table-->
     <!--            :data="data.videosTable"-->
