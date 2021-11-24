@@ -52,6 +52,23 @@
     {% include 'src/ui/input_project.html' %}
     {% include 'src/ui/select_video.html' %}
     {% include 'src/ui/selected_video_stats.html' %}
+    {% include 'src/ui/select_tags.html' %}
+
+
+     <div style="height: fit-content;
+    display: flex;  flex-direction: row; align-items: flex-start; justify-content: flex-start">
+
+        <div id="left-visual-container"
+             style="display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start">
+            {% include 'src/ui/video_player.html' %}
+        </div>
+
+        <div style="width: 100%; margin-left: 10px"
+             id="right-visual-container">
+            {% include 'src/ui/frame_information.html' %}
+
+        </div>
+    </div>
 
 
 </div>

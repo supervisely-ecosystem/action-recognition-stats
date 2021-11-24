@@ -5,7 +5,7 @@ import sly_functions as f
 
 
 def init_fields(state, data):
-    state['selectedTagsIds'] = []
+    state['selectedTags'] = []
 
     data['tagsTable'] = []
 

@@ -59,3 +59,31 @@ def get_tags_list_by_type(tag_type, video_id):
             tags_list.append(current_tag)
 
     return tags_list
+
+
+def tag_in_range(frames_ranges, frame_number):
+    for frame_range in frames_ranges:
+        if int(frame_range[0]) <= int(frame_number) <= int(frame_range[1]):
+            return True
+    return False
+
+
+def update_tags_by_frame(frame_number):
+    tags_on_frame = []
+
+    for tag_key in g.tags2stats.keys():
+        for tag_value in g.tags2stats[tag_key].keys():
+            current_tag = g.tags2stats[tag_key][tag_value]
+            frames_ranges = current_tag['frameRanges']
+
+            if tag_in_range(frames_ranges, frame_number):
+                init_row = {
+                    'tag': tag_key,
+                    'value': tag_value,
+                    'color': current_tag['colors'][0],
+                    'prev': tag_in_range(frames_ranges, frame_number - 1),
+                    'next': tag_in_range(frames_ranges, frame_number + 1)
+                }
+                tags_on_frame.append(init_row)
+
+    g.api.app.set_field(g.task_id, 'state.tagsOnFrame', tags_on_frame)

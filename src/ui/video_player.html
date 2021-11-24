@@ -1,0 +1,21 @@
+<sly-card class="custom-sly-card-border-radius"
+          style="margin: 5px 0; padding: 16px 25px; width: 700px; justify-content: center">
+    <sly-field title="Selected Video"
+               description="view video frames"
+               style="width: 100%"
+               class="mt10"
+    >
+
+<!--        <div style="font-size: 16px">-->
+<!--            <h3>video_id: {{state.currentJobInfo.videoId}}</h3>-->
+<!--            <h3>current_frame: {{state.currentFrame}}</h3>-->
+<!--        </div>-->
+
+        <sly-video :video-id="state.selectedVideoId"
+                   :frame.sync="state.currentFrame"
+
+                   @update:frame="command('pointer_updated')"
+        ></sly-video>
+    </sly-field>
+</sly-card>
+

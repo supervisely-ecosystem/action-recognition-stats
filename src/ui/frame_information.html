@@ -1,0 +1,63 @@
+<sly-card class="custom-sly-card-border-radius"
+          style="margin: 5px 0; padding: 16px 25px; padding-bottom: 2px; width: 100%; height: 100%; justify-content: center">
+    <sly-field title="Frame Information"
+               description="information about frame"
+               style="width: 100%"
+               class="mt10"
+    >
+
+        <div style="font-size: 16px; padding-top: 7px">
+
+
+            <div v-if="state.tagsOnFrame.length > 0">
+
+                <div v-for="current_tag in state.tagsOnFrame">
+                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;
+                    padding-top: 8px">
+
+                        <span style="overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 15px">
+                                <i class="zmdi zmdi-circle mr5" :style="{color: current_tag.color}"></i>
+                                <b>{{current_tag.tag}}</b>: {{current_tag.value}}
+                            </span>
+
+                        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+                            <div v-if="current_tag.prev">
+                                <span style="background: #56ba56; color: white; padding: 0 5px; margin: 0 4px;">p</span>
+                            </div>
+                            <div v-else>
+                                <span style="background: #828282; color: white; padding: 0 5px; margin: 0 4px;">p</span>
+                            </div>
+
+                            <div v-if="current_tag.next">
+                                <span style="background: #56ba56; color: white; padding: 0 5px; margin: 0 4px;">n</span>
+                            </div>
+                            <div v-else>
+                                <span style="background: #828282; color: white; padding: 0 5px; margin: 0 4px;">n</span>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <hr v-if="current_tag != state.tagsOnFrame[state.tagsOnFrame.length - 1]"
+                        style="border: 0; margin: 6px 0; border-top: 2px dashed rgba(0,0,0,.12);"/>
+
+                </div>
+            </div>
+            <div v-else>
+                <sly-field
+                        title="INFO: Tags List is Empty"
+                        description="frame has no tags"
+                        style="margin-bottom: 0"
+                >
+                    <sly-icon slot="icon" :options="{ color: '#4c9ef8', bgColor: '#e3f0ff', rounded: false }">
+                        <i class="zmdi zmdi-info"></I>
+                    </sly-icon>
+                </sly-field>
+
+            </div>
+
+        </div>
+    </sly-field>
+</sly-card>
+
