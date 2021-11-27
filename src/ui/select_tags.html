@@ -1,37 +1,39 @@
 <sly-card
-        class="custom-sly-card-border-radius div-without-paddings mb10"
-        title="Select Tags"
-        subtitle="select tags for analyse"
+        class="custom-sly-card-border-radius div-without-paddings mb10 mt10"
+        title="Tags on Frames"
+        subtitle="review tags on frames"
         style="width: 100%">
-    {{state.selectedRow}}
+
     <!--    <sly-table :content="data.tagsTable"-->
     <!--               :options="{perPage: 10, pageSizes: 10}"-->
     <!--               @input="state.selectedVideoId = $event.selectedRowData.id; command('select_video')">-->
 
-    </sly-table>
+<!--            title="Select Tags"-->
+<!--        subtitle="select tags for analyse"-->
+<!--    </sly-table>-->
 
     <el-table
-            :data="data.tagsTable"
+            :data="data.selectedTagsStats"
             border
 
             style="width: 100%"
             highlight-current-row
             @current-change="command('row_selected')"
-            max-height="350">
-        <el-table-column
-                type="selection"
-                width="55">
-        </el-table-column>
+            max-height="250">
+<!--        <el-table-column-->
+<!--                type="selection"-->
+<!--                width="55">-->
+<!--        </el-table-column>-->
         <el-table-column
 
                 prop="tag"
                 sortable
                 fixed
                 label="TAG"
-                width="120px"
+                width="190px"
         >
             <template scope="scope">
-                {{scope.row.tag}}
+                <i class="zmdi zmdi-circle mr5" :style="{color: scope.row.colors[0]}"></i> {{scope.row.tag}}
             </template>
         </el-table-column>
         <el-table-column

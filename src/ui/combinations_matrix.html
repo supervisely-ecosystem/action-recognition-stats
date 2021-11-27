@@ -1,0 +1,21 @@
+<sly-card class="custom-sly-card-border-radius"
+          style="margin: 5px 0; padding: 16px 25px; padding-bottom: 10px; width: 100%;">
+    <sly-field title="Tags intersections on Matrix"
+               description="tags intersections by frames"
+               style="width: 100%; margin-bottom: 0"
+               class="mt10">
+
+        <div>
+
+
+            <sly-confusion-matrix :data="data.matrixData"
+                                  :options="state.matrixOptions"
+
+                                  @input="state.matrixSelected = $event; command('matrix_cell_selected')">>
+            </sly-confusion-matrix>
+        </div>
+
+
+    </sly-field>
+</sly-card>
+

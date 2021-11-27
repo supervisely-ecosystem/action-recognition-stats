@@ -39,9 +39,9 @@ def get_used_tags_count_by_annotation(annotation_for_video):
     return len(used_tags)
 
 
-def get_video_duration(video_annotation):
+def get_video_duration(video_info):
     try:
-        return round(video_annotation['framesCount'] * video_annotation['framesToTimecodes'][1])
+        return round(video_info.frames_count * video_info.frames_to_timecodes[1])
     except:
         return None
 
@@ -58,7 +58,7 @@ def get_stats_for_video_by_annotation(annotation_for_video):
         'tags_used': tags_used,
         'elapsed_time': '-',  # fix
         'total_frames': total_frames,
-        'video_duration': get_video_duration(video_annotation=annotation_for_video),
+
         'tagged_frames_percent': int(round(tagged_frames / total_frames, 2) * 100),
         'untagged_frames_percent': int(round(untagged_frames / total_frames, 2) * 100),
 
@@ -81,7 +81,8 @@ def get_videos_table():
 
             table_row = {
                 'id': current_video.id,
-                'name': current_video.name
+                'name': current_video.name,
+                'video_duration': get_video_duration(video_info=current_video),
             }
             table_row.update(video_stats)
 
@@ -97,13 +98,13 @@ def download_videos_annotations(api: sly.Api, task_id, context, state, app_logge
     fields_to_update['state.buttonsLoading.cacheAnn'] = False
     fields_to_update['state.annotationsCached'] = True
 
-    # videos_table = get_videos_table()
+    videos_table = get_videos_table()
 
-    with open('videos_table.pkl', 'rb') as file:  # HARD DEBUG
-        videos_table = pickle.load(file=file)
-
-    with open('videos_to_annotations.pkl', 'rb') as file:
-        g.videos2annotations = pickle.load(file=file)
+    # with open('videos_table.pkl', 'rb') as file:  # HARD DEBUG
+    #     videos_table = pickle.load(file=file)
+    #
+    # with open('videos_to_annotations.pkl', 'rb') as file:
+    #     g.videos2annotations = pickle.load(file=file)
 
     fields_to_update['data.videosTable'] = videos_table
 

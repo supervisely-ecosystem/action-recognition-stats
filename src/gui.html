@@ -47,15 +47,40 @@
         padding:0 0;
 
         }
+
+        #action-recognition-stats .solo-button-style {
+
+        display: flex;
+
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        height: 20px;
+        width: 22px;
+
+        border-radius: 6px;
+        margin: 0 6px;
+        font-weight: 600;
+
+        cursor: pointer;
+        transition: all 0.1s;
+
+        border: 1px solid #bfbdbd;
+
+        }
+
+
+
+        }
     </sly-style>
 
     {% include 'src/ui/input_project.html' %}
     {% include 'src/ui/select_video.html' %}
     {% include 'src/ui/selected_video_stats.html' %}
-    {% include 'src/ui/select_tags.html' %}
 
 
-     <div style="height: fit-content;
+    <div style="height: fit-content;
     display: flex;  flex-direction: row; align-items: flex-start; justify-content: flex-start">
 
         <div id="left-visual-container"
@@ -69,6 +94,11 @@
 
         </div>
     </div>
+
+    {% include 'src/ui/timeline.html' %}
+
+    {% include 'src/ui/select_tags.html' %}
+    {% include 'src/ui/combinations_matrix.html' %}
 
 
 </div>

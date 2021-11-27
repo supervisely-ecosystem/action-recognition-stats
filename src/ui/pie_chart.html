@@ -1,0 +1,13 @@
+<sly-card class="custom-sly-card-border-radius"
+          style="margin: 5px 0; padding: 16px 25px; padding-bottom: 10px; width: 100%;">
+    <sly-field title="Tags on PieChart"
+               description="frame tags stats in pie chart form"
+               style="width: 100%; margin-bottom: 0"
+               class="mt10">
+
+        <sly-plotly v-loading="false" element-loading-text="Will be calculated after the per image stats table"
+                    :content="data.example2"></sly-plotly>
+
+    </sly-field>
+</sly-card>
+
