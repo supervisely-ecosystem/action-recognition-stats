@@ -1,5 +1,6 @@
 <sly-card class="custom-sly-card-border-radius"
-          style="margin: 5px 0; padding: 16px 25px; padding-bottom: 10px; width: 100%;">
+          style="margin: 5px 0; padding: 16px 25px; padding-bottom: 10px; width: 100%;"
+          v-loading="state.combinationLoading" element-loading-text="Loading...">
     <sly-field title="Tags intersections on Matrix"
                description="tags intersections by frames"
                style="width: 100%; margin-bottom: 0"
@@ -11,7 +12,7 @@
             <sly-confusion-matrix :data="data.matrixData"
                                   :options="state.matrixOptions"
 
-                                  @input="state.matrixSelected = $event; command('matrix_cell_selected')">>
+                                  @input="state.matrixSelected=$event; state.combinationLoading=true; command('matrix_cell_selected')">>
             </sly-confusion-matrix>
         </div>
 

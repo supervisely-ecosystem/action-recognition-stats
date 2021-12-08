@@ -34,11 +34,11 @@ solo_button_stages = {
     1: {
         'stage': 1,  # tagged frames
         'soloButtonColorText': 'white',
-        'soloButtonColorBg': '#ebc85b'
+        'soloButtonColorBg': '#f8ba29'
     },
     2: {
         'stage': 2,  # untagged frames
-        'soloButtonColorText': '#ebc85b',
+        'soloButtonColorText': '#f8ba29',
         'soloButtonColorBg': 'white'
     }
 }
