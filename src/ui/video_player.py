@@ -9,6 +9,11 @@ import supervisely_lib as sly
 
 def init_fields(state, data):
     state['currentFrame'] = 0
+    state['videoInPlay'] = False
+
+    state['videoPlayerOptions'] = {
+        'intervalsNavigation': False
+    }
 
 
 @g.my_app.callback("pointer_updated")

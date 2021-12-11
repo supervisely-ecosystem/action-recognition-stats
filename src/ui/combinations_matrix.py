@@ -4,6 +4,8 @@ import time
 
 import sly_globals as g
 import sly_functions as f
+import sly_constants as c
+
 import supervisely_lib as sly
 import timeline
 
@@ -59,7 +61,7 @@ def get_table_row_indexes_by_tags(tags, table):
 
 def reset_solo_buttons(tags_table):
     for row_index, row in enumerate(tags_table):
-        tags_table[row_index]['solo_button'] = timeline.solo_button_stages[0]
+        tags_table[row_index]['solo_button'] = c.solo_button_stages[0]
 
     return tags_table
 
@@ -83,13 +85,13 @@ def matrix_cell_selected(api: sly.Api, task_id, context, state, app_logger, fiel
     reset_solo_buttons(tags_table)
 
     for row_index in rows_indexes:
-        new_button_stats = timeline.solo_button_stages[1]
+        new_button_stats = c.solo_button_stages[1]
         tags_table[row_index]['solo_button'] = new_button_stats
 
     fields_to_update[f'data.selectedTagsStats'] = tags_table
+    fields_to_update[f'state.selectedSoloMode'] = 'intersection'
 
-    ranges_to_play = timeline.get_ranges_to_play(state['selectedSoloMode'], tags_table)
-    fields_to_update[f'state.rangesToPlay'] = ranges_to_play if len(ranges_to_play) > 0 else None
+    f.update_play_intervals_by_table(tags_table, 'intersection', fields_to_update)
 
     fields_to_update['data.scrollIntoView'] = 'videoPlayer'
     fields_to_update['state.combinationLoading'] = False

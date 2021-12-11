@@ -8,6 +8,8 @@ import video_player
 import frame_information
 
 import timeline
+
+import pie_chart
 import combinations_matrix
 
 
@@ -23,6 +25,7 @@ def init(state, data):
     video_player.init_fields(state=state, data=data)
     frame_information.init_fields(state=state, data=data)
     timeline.init_fields(state=state, data=data)
+    pie_chart.init_fields(state=state, data=data)
     combinations_matrix.init_fields(state=state, data=data)
 
 

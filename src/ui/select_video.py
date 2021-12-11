@@ -2,8 +2,8 @@ import supervisely_lib as sly
 
 import sly_globals as g
 import sly_functions as f
+import sly_constants as c
 
-from timeline import solo_button_stages
 
 def init_fields(state, data):
     state['selectedVideoId'] = None
@@ -100,7 +100,7 @@ def init_solo_button():
     solo_button_params = {
         'stage': 0,
     }
-    solo_button_params.update(solo_button_stages[0])
+    solo_button_params.update(c.solo_button_stages[0])
     return solo_button_params
 
 
@@ -185,6 +185,42 @@ def convert_to_sly_matrix(tags2intersections):
     }
 
 
+def fill_combinations_matrix(tags_stats_in_table_form, fields_to_update):
+    tags2intersections = get_tag_intersection_matrix(tags_stats_in_table_form)
+    if len(tags2intersections) > 0:
+        fields_to_update['data.matrixData'] = convert_to_sly_matrix(tags2intersections)
+
+
+def fill_tags_table(fields_to_update):
+    tags_stats_in_table_form = tag_stats_to_table(g.tags2stats)
+    fields_to_update['data.selectedTagsStats'] = tags_stats_in_table_form
+
+    return tags_stats_in_table_form
+
+
+def fill_pie_chart(tags_stats_in_table_form, fields_to_update):
+    labels_with_values = {}
+
+    for row in tags_stats_in_table_form:
+        label = row.get("tag")
+        value = row.get("value")
+        frame_ranges = row.get('frameRanges')
+
+        if label is not None and value is not None and frame_ranges is not None:
+            tags_count_for_this_value = len(f.get_frames_list_from_ranges(frame_ranges))
+
+            labels_with_values[label] = labels_with_values.get(label, 0) + tags_count_for_this_value
+
+    chart_data = [{
+        'labels': list(labels_with_values.keys()),
+        'values': list(labels_with_values.values()),
+        "type": "pie"
+    }]
+
+    fields_to_update['data.tagsOnPieChart.data'] = chart_data
+
+
+
 @g.my_app.callback("select_video")
 @sly.timeit
 @g.update_fields
@@ -200,11 +236,11 @@ def select_video(api: sly.Api, task_id, context, state, app_logger, fields_to_up
     tags_on_frames = f.get_tags_list_by_type('frame', g.video_id)  # frames tags part
     g.tags2stats = get_tags_stats(tags_on_frames)
 
-    tags_stats_in_table_form = tag_stats_to_table(g.tags2stats)
-    fields_to_update['data.selectedTagsStats'] = tags_stats_in_table_form
+    f.merge_tag_value_frame_ranges(g.tags2stats)
 
-    tags2intersections = get_tag_intersection_matrix(tags_stats_in_table_form)
-    if len(tags2intersections) > 0:
-        fields_to_update['data.matrixData'] = convert_to_sly_matrix(tags2intersections)
+    # fill additional widgets
+    tags_stats_in_table_form = fill_tags_table(fields_to_update)  # table
+    fill_pie_chart(tags_stats_in_table_form, fields_to_update)  # pie-chart
+    fill_combinations_matrix(tags_stats_in_table_form, fields_to_update)  # matrix
 
     f.update_tags_by_frame(state['currentFrame'])

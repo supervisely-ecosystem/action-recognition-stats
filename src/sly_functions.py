@@ -1,7 +1,9 @@
 import datetime
 from string import Formatter
+from itertools import chain
 
 import sly_globals as g
+import sly_constants as c
 
 from sly_fields_names import ItemsStatusField
 
@@ -115,3 +117,126 @@ def get_ranges_intersections_frame(ranges1, ranges2):
                 return max(current_range2[0], current_range1[0])
 
     return None
+
+
+def get_frames_ranges_from_list(frames_list):
+    frame_ranges = []
+
+    first_frame_in_range = None
+    prev_frame_index = -1
+
+    for frame_index in frames_list:
+        if first_frame_in_range is None:
+            first_frame_in_range = frame_index
+            prev_frame_index = frame_index
+
+        elif frame_index - 1 == prev_frame_index:
+            prev_frame_index = frame_index
+
+        else:
+            frame_ranges.append([first_frame_in_range, prev_frame_index])
+
+            first_frame_in_range = frame_index
+            prev_frame_index = frame_index
+
+    if first_frame_in_range is not None:
+        if [first_frame_in_range, prev_frame_index] not in frame_ranges:
+            frame_ranges.append([first_frame_in_range, prev_frame_index])
+
+    return frame_ranges
+
+
+def get_frames_list_from_ranges(frames_ranges):
+    frames_set = set()
+
+    for frame_range in frames_ranges:
+        for current_frame in range(frame_range[0], frame_range[1] + 1, 1):
+            frames_set.add(current_frame)
+
+    return list(frames_set)
+
+
+def merge_close_ranges(frame_ranges):
+    frames_list = sorted(get_frames_list_from_ranges(frame_ranges))
+    return get_frames_ranges_from_list(frames_list)
+
+
+def merge_tag_value_frame_ranges(tags2stats):
+    for tag_name, tag_values in tags2stats.items():
+        for tag_value, tag_stats in tag_values.items():
+            frame_ranges = tags2stats[tag_name][tag_value].get('frameRanges')
+            if frame_ranges is not None:
+                tags2stats[tag_name][tag_value]['frameRanges'] = merge_close_ranges(frame_ranges)
+                
+                
+def get_frame_num_by_tags_intersection(first_tag, second_tag):
+    tag1_key, tag1_value = [x.strip() for x in first_tag.split(':')]
+    tag2_key, tag2_value = [x.strip() for x in second_tag.split(':')]
+    frameRange1 = g.tags2stats[tag1_key][tag1_value]['frameRanges']
+    frameRange2 = g.tags2stats[tag2_key][tag2_value]['frameRanges']
+
+    return get_ranges_intersections_frame(frameRange1, frameRange2)
+
+
+def get_table_row_indexes_by_tags(tags, table):
+    rows_indexes = []
+
+    for tag_to_find in tags:
+        for index, row in enumerate(table):
+            tag = row.get('tag')
+            value = row.get('value')
+
+            if tag == tag_to_find['tag'] and value == tag_to_find['value']:
+                rows_indexes.append(index)
+
+    return rows_indexes
+
+
+def reset_solo_buttons(tags_table):
+    for row_index, row in enumerate(tags_table):
+        tags_table[row_index]['solo_button'] = c.solo_button_stages[0]
+
+    return tags_table
+
+
+def reverse_ranges(frames_ranges, frames_count):
+    all_frames = set([current_frame for current_frame in range(frames_count)])
+    filled_frames = get_frames_list_from_ranges(frames_ranges)
+
+    unfilled_frames = all_frames - set(filled_frames)
+    return get_frames_ranges_from_list(unfilled_frames)
+
+
+# @lru_cache(maxsize=5)
+def get_ranges_to_play(solo_mode, tags_table):
+    raw_ranges = []
+
+    video_info = g.api.app.get_field(g.task_id, 'data.videoInfo')
+
+    for row in tags_table:
+        if row['solo_button']['stage'] == 1:  # tagged frames
+            raw_ranges.append(get_frames_list_from_ranges(row['frameRanges']))
+        elif row['solo_button']['stage'] == 2:  # untagged frames
+            reversed_ranges = reverse_ranges(row['frameRanges'], video_info['frames_count'])
+            raw_ranges.append(get_frames_list_from_ranges(reversed_ranges))
+
+    if len(raw_ranges) == 0:
+        return []
+
+    if solo_mode == 'union':
+        return get_frames_ranges_from_list(sorted(list(set(chain.from_iterable(raw_ranges)))))
+    elif solo_mode == 'intersection':
+        raw_ranges = list(map(set, raw_ranges))
+        return get_frames_ranges_from_list(sorted(list(set.intersection(*raw_ranges))))
+    else:
+        return -1
+
+
+def update_play_intervals_by_table(tags_table, play_mode, fields_to_update):
+
+    ranges_to_play = get_ranges_to_play(play_mode, tags_table)
+    fields_to_update[f'state.rangesToPlay'] = ranges_to_play if len(ranges_to_play) > 0 else None
+    fields_to_update[f'state.videoPlayerOptions.intervalsNavigation'] = True if len(ranges_to_play) > 0 else False
+
+
+

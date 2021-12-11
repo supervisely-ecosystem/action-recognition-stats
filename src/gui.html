@@ -1,8 +1,8 @@
 <div id="action-recognition-stats">
     <sly-style>
         #action-recognition-stats .custom-sly-card-border-radius {
-        border-radius: 18px;
-        padding: 16px 20px;
+<!--        border-radius: 18px;-->
+<!--        padding: 16px 20px;-->
         }
 
         #action-recognition-stats .beautiful-table {
@@ -43,6 +43,20 @@
         color: #039aff;
         }
 
+        #action-recognition-stats .table-header-font-size .el-table__header {
+        font-size: 11px;
+
+        }
+
+        #action-recognition-stats .table-header-font-size .el-table__header .is-leaf .cell {
+        line-height: 16px;
+        padding: 10px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        }
+
         #action-recognition-stats .div-without-paddings .content {
         padding:0 0;
 
@@ -79,15 +93,14 @@
     {% include 'src/ui/selected_video_stats.html' %}
 
 
-    <div style="height: fit-content;
-    display: flex;  flex-direction: row; align-items: flex-start; justify-content: flex-start">
+    <div style="height: fit-content; display: flex;  flex-direction: row; justify-content: flex-start; align-items: stretch">
 
         <div id="left-visual-container"
-             style="display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start">
+             style="width: 60%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;">
             {% include 'src/ui/video_player.html' %}
         </div>
 
-        <div style="width: 100%; margin-left: 10px"
+        <div style="width: 40%; position: relative; margin-bottom: 10px; margin-left: 10px;"
              id="right-visual-container">
             {% include 'src/ui/frame_information.html' %}
 
@@ -98,6 +111,7 @@
 
     {% include 'src/ui/select_tags.html' %}
     {% include 'src/ui/combinations_matrix.html' %}
+    {% include 'src/ui/pie_chart.html' %}
 
 
 </div>

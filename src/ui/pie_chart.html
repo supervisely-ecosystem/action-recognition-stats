@@ -1,12 +1,29 @@
+<h1 style="margin-top: 50px">BACKLOG</h1>
+
 <sly-card class="custom-sly-card-border-radius"
           style="margin: 5px 0; padding: 16px 25px; padding-bottom: 10px; width: 100%;">
+    {{state.pieChartSelectedSector}}
     <sly-field title="Tags on PieChart"
                description="frame tags stats in pie chart form"
                style="width: 100%; margin-bottom: 0"
                class="mt10">
 
-        <sly-plotly v-loading="false" element-loading-text="Will be calculated after the per image stats table"
-                    :content="data.example2"></sly-plotly>
+
+        <div
+                style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+
+            <sly-plotly v-loading="false" element-loading-text="Loading..."
+                        :content="data.tagsOnPieChart"
+                        @chart-click="(e) => {
+                        if (e.points && e.points.length) {
+                        state.pieChartSelectedSector = {label: e.points[0].label, value: e.points[0].value}
+                        }}"
+            ></sly-plotly>
+<!--            <sly-plotly v-loading="false" element-loading-text="Loading..."-->
+<!--                        :content="data.pieChartExample"-->
+<!--                        @chart-click="state.pieChartSelectedSector = $event;"-->
+<!--            ></sly-plotly>-->
+        </div>
 
     </sly-field>
 </sly-card>

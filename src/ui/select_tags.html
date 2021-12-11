@@ -2,28 +2,38 @@
         class="custom-sly-card-border-radius div-without-paddings mb10 mt10"
         title="Tags on Frames"
         subtitle="review tags on frames"
-        style="width: 100%">
+        style="width: 100%"
+        v-loading="state.rowFromTagsTableLoading" element-loading-text="Loading..."
+>
 
     <!--    <sly-table :content="data.tagsTable"-->
     <!--               :options="{perPage: 10, pageSizes: 10}"-->
     <!--               @input="state.selectedVideoId = $event.selectedRowData.id; command('select_video')">-->
 
-<!--            title="Select Tags"-->
-<!--        subtitle="select tags for analyse"-->
-<!--    </sly-table>-->
+    <!--            title="Select Tags"-->
+    <!--        subtitle="select tags for analyse"-->
+    <!--    </sly-table>-->
+    {{state.selectedRow}}
 
+<!--    <sly-table :content="data.selectedTagsStats"-->
+<!--               :options="{perPage: 10, pageSizes: 10}"-->
+<!--               @input="state.selectedRowFromTagsTable=$event; state.rowFromTagsTableLoading=true; command('tags_table_row_selected')">-->
+
+<!--    </sly-table>-->
     <el-table
             :data="data.selectedTagsStats"
             border
 
+            class="table-header-font-size"
+
             style="width: 100%"
             highlight-current-row
-            @current-change="command('row_selected')"
-            max-height="250">
-<!--        <el-table-column-->
-<!--                type="selection"-->
-<!--                width="55">-->
-<!--        </el-table-column>-->
+            @current-change="state.selectedRowFromTagsTable=$event; state.rowFromTagsTableLoading=true; command('tags_table_row_selected')"
+            max-height="350">
+        <!--        <el-table-column-->
+        <!--                type="selection"-->
+        <!--                width="55">-->
+        <!--        </el-table-column>-->
         <el-table-column
 
                 prop="tag"
@@ -41,7 +51,7 @@
                 sortable
                 fixed
                 label="VALUE"
-                width="150px">
+                width="130px">
             <template scope="scope">
                 {{scope.row.value}}
             </template>
@@ -50,7 +60,7 @@
                 prop="tagged_frames"
                 sortable
                 label="TAGGED FRAMES"
-                width="180px">
+                width="90px">
             <template scope="scope">
                 {{scope.row.tagged_frames}}
             </template>
@@ -59,7 +69,7 @@
                 prop="untagged_frames"
                 sortable
                 label="UNTAGGED FRAMES"
-                width="200px">
+                width="90px">
             <template scope="scope">
                 {{scope.row.untagged_frames}}
             </template>
@@ -69,16 +79,16 @@
                 prop="tagged_frames_percent"
                 sortable
                 label="TAGGED FRAMES %"
-                width="200px">
+                width="90px">
             <template scope="scope">
-                {{scope.row.tagged_frames_percent}}
+                {{scope.row.tagged_frames_percent.toFixed(0)}}
             </template>
         </el-table-column>
         <el-table-column
                 prop="max_range"
                 sortable
                 label="MAX RANGE"
-                width="200px">
+                width="110px">
             <template scope="scope">
                 {{scope.row.max_range}}
             </template>
@@ -87,7 +97,7 @@
                 prop="min_range"
                 sortable
                 label="MIN RANGE"
-                width="200px">
+                width="110px">
             <template scope="scope">
                 {{scope.row.min_range}}
             </template>
