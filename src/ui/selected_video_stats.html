@@ -41,6 +41,9 @@
                 </sly-icon>
             </sly-field>
             <div style="border-left: 2px solid #9702db; padding: 2px 8px">
+                <div v-if="state.selectedVideo.tagsOnVideo && state.selectedVideo.tagsOnVideo.length == 0">
+                    empty
+                </div>
                 <div v-for="current_tag in state.selectedVideo.tagsOnVideo">
                     <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between">
                             <span style="overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 13px">
@@ -68,7 +71,20 @@
                 </sly-icon>
             </sly-field>
             <div style="border-left: 2px solid #fd8403; padding: 2px 8px">
-                <span>not implemented</span>
+                <div v-if="state.selectedVideo.annotators && state.selectedVideo.annotators.length == 0">
+                    empty
+                </div>
+                <div v-for="current_annotator in state.selectedVideo.annotators">
+                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between">
+                            <span style="overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 14px">
+                                <b>{{current_annotator}}</b>
+                            </span>
+                    </div>
+
+                    <hr v-if="current_annotator != state.selectedVideo.annotators[state.selectedVideo.annotators.length - 1]"
+                        style="border: 0; margin: 6px 0; border-top: 2px dashed rgba(0,0,0,.12);"/>
+
+                </div>
             </div>
 
         </div>
@@ -86,7 +102,21 @@
             </sly-field>
             <div style="border-left: 2px solid gold; padding: 2px 8px">
 
-                <span>not implemented</span>
+                <div v-if="state.selectedVideo.reviewers && state.selectedVideo.reviewers.length == 0">
+                    empty
+                </div>
+                <div v-for="current_reviewer in state.selectedVideo.reviewers">
+                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between">
+                            <span style="overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 14px">
+
+                                <b>{{current_reviewer}}</b>
+                            </span>
+                    </div>
+
+                    <hr v-if="current_reviewer != state.selectedVideo.reviewers[state.selectedVideo.reviewers.length - 1]"
+                        style="border: 0; margin: 6px 0; border-top: 2px dashed rgba(0,0,0,.12);"/>
+
+                </div>
             </div>
 
         </div>

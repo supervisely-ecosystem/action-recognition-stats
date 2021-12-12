@@ -65,6 +65,17 @@ def get_stats_for_video_by_annotation(annotation_for_video):
     }
 
 
+def get_stats_for_video_from_custom_data(item_id):
+    items_stats = g.item2stats.get(f'{item_id}')
+
+    if items_stats is not None:
+        return {
+            'elapsed_time': items_stats.get('work_time', '0'),
+        }
+
+    return {}
+
+
 def get_videos_table():
     videos_table = []
 
@@ -78,6 +89,7 @@ def get_videos_table():
             g.videos2annotations[current_video.id] = annotation_for_video
 
             video_stats = get_stats_for_video_by_annotation(annotation_for_video)
+            custom_stats = get_stats_for_video_from_custom_data(current_video.id)
 
             table_row = {
                 'id': current_video.id,
@@ -85,6 +97,7 @@ def get_videos_table():
                 'video_duration': get_video_duration(video_info=current_video),
             }
             table_row.update(video_stats)
+            table_row.update(custom_stats)
 
             videos_table.append(table_row)
     return videos_table

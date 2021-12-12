@@ -16,7 +16,7 @@ import combinations_matrix
 @sly.timeit
 def init(state, data):
     state['buttonsLoading'] = {
-        "cacheAnn": False,
+        "cacheAnn": True,
     }
 
     input_project.init_fields(state=state, data=data)

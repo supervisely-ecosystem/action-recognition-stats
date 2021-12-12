@@ -18,7 +18,7 @@ def main():
 
     ui.init(data=data, state=state)  # init data for UI widgets
 
-    g.my_app.run(data=data, state=state)
+    g.my_app.run(data=data, state=state, initial_events=[{"command": "download_videos_annotations"}])
 
 
 # TODO: video duration in videos table

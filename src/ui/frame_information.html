@@ -22,28 +22,31 @@
                 <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;
                     margin-top: 9px;">
 
-                        <span style="overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 15px">
-                                <i class="zmdi zmdi-circle mr5" :style="{color: current_tag.color}"></i>
-                                <b>{{current_tag.tag}}</b>: {{current_tag.value}}
-                            </span>
+                    <span style="overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 15px">
+                            <i class="zmdi zmdi-circle mr5" :style="{color: current_tag.color}"></i>
+                            <b>{{current_tag.tag}}</b>: {{current_tag.value}}
+                    </span>
+
 
                     <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+                        <div style="margin: 0 9px; font-weight: 400; font-size: 12px">
+                            {{current_tag.tag_position}}
+                        </div>
                         <div v-if="current_tag.prev">
-                            <span style="background: #56ba56; color: white; padding: 0 5px; margin: 0 4px;">p</span>
+                            <span style="background: #56ba56; color: white; padding: 0 5px; margin: 0 2px; border-radius: 5px;">p</span>
                         </div>
                         <div v-else>
-                            <span style="background: #828282; color: white; padding: 0 5px; margin: 0 4px;">p</span>
+                            <span style="background: #828282; color: white; padding: 0 5px; margin: 0 2px; border-radius: 5px;">p</span>
                         </div>
 
                         <div v-if="current_tag.next">
-                            <span style="background: #56ba56; color: white; padding: 0 5px; margin: 0 4px;">n</span>
+                            <span style="background: #56ba56; color: white; padding: 0 5px; margin: 0 2px; border-radius: 5px;">n</span>
                         </div>
                         <div v-else>
-                            <span style="background: #828282; color: white; padding: 0 5px; margin: 0 4px;">n</span>
+                            <span style="background: #828282; color: white; padding: 0 5px; margin: 0 2px; border-radius: 5px;">n</span>
                         </div>
-
-
                     </div>
+
                 </div>
 
                 <hr v-if="current_tag != state.tagsOnFrame[state.tagsOnFrame.length - 1]"

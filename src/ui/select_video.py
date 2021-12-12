@@ -220,7 +220,6 @@ def fill_pie_chart(tags_stats_in_table_form, fields_to_update):
     fields_to_update['data.tagsOnPieChart.data'] = chart_data
 
 
-
 @g.my_app.callback("select_video")
 @sly.timeit
 @g.update_fields
@@ -232,6 +231,8 @@ def select_video(api: sly.Api, task_id, context, state, app_logger, fields_to_up
 
     fields_to_update['state.selectedVideo.generalStats'] = get_video_general_stats(g.video_id)  # video tags part
     fields_to_update['state.selectedVideo.tagsOnVideo'] = f.get_tags_list_by_type('video', g.video_id)
+    fields_to_update['state.selectedVideo.annotators'] = f.get_video_workers_by_id('annotators', g.video_id)
+    fields_to_update['state.selectedVideo.reviewers'] = f.get_video_workers_by_id('reviewers', g.video_id)
 
     tags_on_frames = f.get_tags_list_by_type('frame', g.video_id)  # frames tags part
     g.tags2stats = get_tags_stats(tags_on_frames)

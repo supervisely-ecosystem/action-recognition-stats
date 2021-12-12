@@ -43,8 +43,11 @@ ui_sources_dir = os.path.join(source_path, "ui")  # /action-recognition-stats/sr
 sly.logger.info(f"UI source directory: {ui_sources_dir}")
 sys.path.append(ui_sources_dir)
 
+project_custom_data = f.get_project_custom_data(project_id)
 
 tags2stats = {}
+item2stats = project_custom_data.get('item2stats', {})  # item_id -> his stats
+
 
 video_id = None
 videos2annotations = {}

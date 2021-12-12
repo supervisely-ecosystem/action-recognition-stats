@@ -50,8 +50,8 @@ def get_tags_list_by_type(tag_type, video_id):
     tags_list = []
 
     for current_tag in tags_on_video:
-        # if current_tag.get('name') in g.technical_tags_names: # DEBUG
-        #     continue
+        if current_tag.get('name') in g.technical_tags_names: # DEBUG
+            continue
 
         frame_range = current_tag.get('frameRange')
         tag_value = current_tag.get('value')
@@ -79,13 +79,16 @@ def update_tags_by_frame(frame_number):
             current_tag = g.tags2stats[tag_key][tag_value]
             frames_ranges = current_tag['frameRanges']
 
+            frames_list = sorted(get_frames_list_from_ranges(frames_ranges))
+
             if tag_in_range(frames_ranges, frame_number):
                 init_row = {
                     'tag': tag_key,
                     'value': tag_value,
                     'color': current_tag['colors'][0],
                     'prev': tag_in_range(frames_ranges, frame_number - 1),
-                    'next': tag_in_range(frames_ranges, frame_number + 1)
+                    'next': tag_in_range(frames_ranges, frame_number + 1),
+                    'tag_position': f'{frames_list.index(frame_number) + 1} / {len(frames_list)}'
                 }
                 tags_on_frame.append(init_row)
 
@@ -167,8 +170,8 @@ def merge_tag_value_frame_ranges(tags2stats):
             frame_ranges = tags2stats[tag_name][tag_value].get('frameRanges')
             if frame_ranges is not None:
                 tags2stats[tag_name][tag_value]['frameRanges'] = merge_close_ranges(frame_ranges)
-                
-                
+
+
 def get_frame_num_by_tags_intersection(first_tag, second_tag):
     tag1_key, tag1_value = [x.strip() for x in first_tag.split(':')]
     tag2_key, tag2_value = [x.strip() for x in second_tag.split(':')]
@@ -233,10 +236,23 @@ def get_ranges_to_play(solo_mode, tags_table):
 
 
 def update_play_intervals_by_table(tags_table, play_mode, fields_to_update):
-
     ranges_to_play = get_ranges_to_play(play_mode, tags_table)
     fields_to_update[f'state.rangesToPlay'] = ranges_to_play if len(ranges_to_play) > 0 else None
     fields_to_update[f'state.videoPlayerOptions.intervalsNavigation'] = True if len(ranges_to_play) > 0 else False
 
+
+def get_project_custom_data(project_id):
+    project_info = g.api.project.get_info_by_id(project_id)
+    if project_info.custom_data:
+        return project_info.custom_data
+    else:
+        return {}
+
+
+def get_video_workers_by_id(worker_type, video_id):
+    item_info = g.item2stats.get(f'{video_id}')
+
+    if item_info is not None:
+        return item_info.get(worker_type, [])
 
 
