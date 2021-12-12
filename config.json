@@ -22,7 +22,7 @@
   "instance_version": "6.4.21"
   
   "context_menu": {
-    "target": ["images_project"],
+    "target": ["videos_project"],
     "context_category": "Action Recognition"
   }
 
