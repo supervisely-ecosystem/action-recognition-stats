@@ -48,7 +48,7 @@ def solo_button_clicked(api: sly.Api, task_id, context, state, app_logger, field
 
 @g.my_app.callback("solo_mode_changed")
 @sly.timeit
-@g.update_fields
+@sly.update_fields
 @g.my_app.ignore_errors_and_show_dialog_window()
 def solo_mode_changed(api: sly.Api, task_id, context, state, app_logger, fields_to_update):
     tags_table = g.api.app.get_field(g.task_id, 'data.selectedTagsStats')

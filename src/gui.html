@@ -1,8 +1,8 @@
 <div id="action-recognition-stats">
     <sly-style>
         #action-recognition-stats .custom-sly-card-border-radius {
-<!--        border-radius: 18px;-->
-<!--        padding: 16px 20px;-->
+        <!--        border-radius: 18px;-->
+        <!--        padding: 16px 20px;-->
         }
 
         #action-recognition-stats .beautiful-table {
@@ -90,28 +90,31 @@
 
     {% include 'src/ui/input_project.html' %}
     {% include 'src/ui/select_video.html' %}
-    {% include 'src/ui/selected_video_stats.html' %}
 
 
-    <div style="height: fit-content; display: flex;  flex-direction: row; justify-content: flex-start; align-items: stretch">
+    <div v-if="state.selectedVideo.generalStats">
+        {% include 'src/ui/selected_video_stats.html' %}
 
-        <div id="left-visual-container"
-             style="width: 60%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;">
-            {% include 'src/ui/video_player.html' %}
+
+        <div style="height: fit-content; display: flex;  flex-direction: row; justify-content: flex-start; align-items: stretch">
+
+            <div id="left-visual-container"
+                 style="width: 60%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;">
+                {% include 'src/ui/video_player.html' %}
+            </div>
+
+            <div style="width: 40%; position: relative; margin-bottom: 10px; margin-left: 10px;"
+                 id="right-visual-container">
+                {% include 'src/ui/frame_information.html' %}
+
+            </div>
         </div>
 
-        <div style="width: 40%; position: relative; margin-bottom: 10px; margin-left: 10px;"
-             id="right-visual-container">
-            {% include 'src/ui/frame_information.html' %}
+        {% include 'src/ui/timeline.html' %}
 
-        </div>
+        {% include 'src/ui/select_tags.html' %}
+        {% include 'src/ui/combinations_matrix.html' %}
     </div>
-
-    {% include 'src/ui/timeline.html' %}
-
-    {% include 'src/ui/select_tags.html' %}
-    {% include 'src/ui/combinations_matrix.html' %}
-
 
 
 </div>

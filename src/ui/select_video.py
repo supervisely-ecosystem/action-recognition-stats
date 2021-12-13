@@ -7,6 +7,7 @@ import sly_constants as c
 
 def init_fields(state, data):
     state['selectedVideoId'] = None
+
     state['selectedVideo'] = {
         'generalStats': None,
         'tagsOnVideo': None
@@ -227,7 +228,10 @@ def fill_pie_chart(tags_stats_in_table_form, fields_to_update):
 def select_video(api: sly.Api, task_id, context, state, app_logger, fields_to_update):
     g.video_id = state['selectedVideoId']
 
-    fields_to_update['data.videoInfo'] = api.video.get_info_by_id(g.video_id)
+    video_info = api.video.get_info_by_id(g.video_id)
+    fields_to_update['data.videoInfo'] = {
+        'frames_count': video_info.frames_count
+    }
 
     fields_to_update['state.selectedVideo.generalStats'] = get_video_general_stats(g.video_id)  # video tags part
     fields_to_update['state.selectedVideo.tagsOnVideo'] = f.get_tags_list_by_type('video', g.video_id)

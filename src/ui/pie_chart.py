@@ -14,7 +14,17 @@ def init_fields(state, data):
     data['timelineTags'] = None
 
     data['tagsOnPieChart'] = {
-        "data": {},
+        "data": [
+            {
+                "labels": [
+
+                ],
+                "values": [
+
+                ],
+                "type": "pie"
+            }
+        ],
         "layout": {
             "autosize": False,
             "height": 450,

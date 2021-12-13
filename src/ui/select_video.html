@@ -1,9 +1,12 @@
+
 <sly-card
+
+        :disabled="{disabled: data.videosTable.length==0, message: 'download annotations to unlock'}"
         class="custom-sly-card-border-radius div-without-paddings mb10"
         title="Select Video"
         subtitle="select video for analyse"
         style="width: 100%">
-    {{state.selectedRow}}
+
     <sly-table :content="data.videosTable"
                :options="{perPage: 10, pageSizes: 10}"
                @input="state.selectedVideoId = $event.selectedRowData.id; command('select_video')">
