@@ -71,57 +71,6 @@ def tag_in_range(frames_ranges, frame_number):
     return False
 
 
-def update_tags_by_frame(frame_number):
-    tags_on_frame = []
-
-    for tag_key in g.tags2stats.keys():
-        for tag_value in g.tags2stats[tag_key].keys():
-            current_tag = g.tags2stats[tag_key][tag_value]
-            frames_ranges = current_tag['frameRanges']
-
-            frames_list = sorted(get_frames_list_from_ranges(frames_ranges))
-
-            if tag_in_range(frames_ranges, frame_number):
-                init_row = {
-                    'tag': tag_key,
-                    'value': tag_value,
-                    'color': current_tag['colors'][0],
-                    'prev': tag_in_range(frames_ranges, frame_number - 1),
-                    'next': tag_in_range(frames_ranges, frame_number + 1),
-                    'tag_position': f'{frames_list.index(frame_number) + 1} / {len(frames_list)}'
-                }
-                tags_on_frame.append(init_row)
-
-    g.api.app.set_field(g.task_id, 'state.tagsOnFrame', tags_on_frame)
-
-
-def get_ranges_intersections_count(ranges1, ranges2):
-    intersections_count = 0
-
-    for current_range1 in ranges1:
-        for current_range2 in ranges2:
-            if current_range2[0] <= current_range1[0] <= current_range2[1]:
-                end_of_inter_segment = min(current_range2[1], current_range1[1])
-                intersections_count += end_of_inter_segment - current_range1[0] + 1
-
-            elif current_range2[0] <= current_range1[1] <= current_range2[1]:
-                start_of_inter_segment = max(current_range2[0], current_range1[0])
-                intersections_count += current_range1[1] - start_of_inter_segment + 1
-
-    return intersections_count
-
-
-def get_ranges_intersections_frame(ranges1, ranges2):
-    for current_range1 in ranges1:
-        for current_range2 in ranges2:
-            if current_range2[0] <= current_range1[0] <= current_range2[1]:
-                return current_range1[0]
-            elif current_range2[0] <= current_range1[1] <= current_range2[1]:
-                return max(current_range2[0], current_range1[0])
-
-    return None
-
-
 def get_frames_ranges_from_list(frames_list):
     frame_ranges = []
 
@@ -157,6 +106,81 @@ def get_frames_list_from_ranges(frames_ranges):
             frames_set.add(current_frame)
 
     return list(frames_set)
+
+def update_tags_by_frame(frame_number):
+    tags_on_frame = []
+
+    for tag_key in g.tags2stats.keys():
+        for tag_value in g.tags2stats[tag_key].keys():
+            current_tag = g.tags2stats[tag_key][tag_value]
+            frames_ranges = current_tag['frameRanges']
+
+            frames_list = sorted(get_frames_list_from_ranges(frames_ranges))
+
+            if tag_in_range(frames_ranges, frame_number):
+                init_row = {
+                    'tag': tag_key,
+                    'value': tag_value,
+                    'color': current_tag['colors'][0],
+                    'prev': tag_in_range(frames_ranges, frame_number - 1),
+                    'next': tag_in_range(frames_ranges, frame_number + 1),
+                    'tag_position': f'{frames_list.index(frame_number) + 1} / {len(frames_list)}'
+                }
+                tags_on_frame.append(init_row)
+
+    g.api.app.set_field(g.task_id, 'state.tagsOnFrame', tags_on_frame)
+
+
+def get_ranges_intersections_count(ranges1, ranges2):
+    # intersections_count = 0
+
+    ranges1 = set(get_frames_list_from_ranges(ranges1))
+    ranges2 = set(get_frames_list_from_ranges(ranges2))
+
+    raw_ranges = [ranges1, ranges2]
+
+    return len((list(set.intersection(*raw_ranges))))
+    # print()
+
+    # for current_range1 in ranges1:
+    #     for current_range2 in ranges2:
+    #         if current_range2[0] <= current_range1[0] <= current_range2[1]:
+    #             end_of_inter_segment = min(current_range2[1], current_range1[1])
+    #             intersections_count += end_of_inter_segment - current_range1[0] + 1
+    #
+    #         elif current_range2[0] <= current_range1[1] <= current_range2[1]:
+    #             start_of_inter_segment = max(current_range2[0], current_range1[0])
+    #             intersections_count += current_range1[1] - start_of_inter_segment + 1
+    #
+    #
+    # for current_range1 in ranges2:
+    #     for current_range2 in ranges1:
+    #         if current_range1 == current_range2:
+    #             continue
+    #
+    #         if current_range2[0] <= current_range1[0] <= current_range2[1]:
+    #             end_of_inter_segment = min(current_range2[1], current_range1[1])
+    #             intersections_count += end_of_inter_segment - current_range1[0] + 1
+    #
+    #         elif current_range2[0] <= current_range1[1] <= current_range2[1]:
+    #             start_of_inter_segment = max(current_range2[0], current_range1[0])
+    #             intersections_count += current_range1[1] - start_of_inter_segment + 1
+
+    return intersections_count
+
+get_ranges_intersections_count([[260, 758]], [[447, 633], [663, 758]])
+
+def get_ranges_intersections_frame(ranges1, ranges2):
+    for current_range1 in ranges1:
+        for current_range2 in ranges2:
+            if current_range2[0] <= current_range1[0] <= current_range2[1]:
+                return current_range1[0]
+            elif current_range2[0] <= current_range1[1] <= current_range2[1]:
+                return max(current_range2[0], current_range1[0])
+
+    return None
+
+
 
 
 def merge_close_ranges(frame_ranges):
