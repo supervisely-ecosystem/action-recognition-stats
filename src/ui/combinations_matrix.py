@@ -45,27 +45,6 @@ def get_frame_num_by_tags_intersection(first_tag, second_tag):
     return f.get_ranges_intersections_frame(frameRange1, frameRange2)
 
 
-def get_table_row_indexes_by_tags(tags, table):
-    rows_indexes = []
-
-    for tag_to_find in tags:
-        for index, row in enumerate(table):
-            tag = row.get('tag')
-            value = row.get('value')
-
-            if tag == tag_to_find['tag'] and value == tag_to_find['value']:
-                rows_indexes.append(index)
-
-    return rows_indexes
-
-
-def reset_solo_buttons(tags_table):
-    for row_index, row in enumerate(tags_table):
-        tags_table[row_index]['solo_button'] = c.solo_button_stages[0]
-
-    return tags_table
-
-
 @g.my_app.callback("matrix_cell_selected")
 @sly.timeit
 @g.update_fields
@@ -79,20 +58,7 @@ def matrix_cell_selected(api: sly.Api, task_id, context, state, app_logger, fiel
     second_tag = {'tag': second_tag.split(':')[0].strip(),
                   'value': second_tag.split(':')[1].strip()}
 
-    tags_table = g.api.app.get_field(g.task_id, 'data.selectedTagsStats')
-    rows_indexes = get_table_row_indexes_by_tags([first_tag, second_tag], tags_table)
+    f.set_solo_buttons_by_tags(selected_tags=[first_tag, second_tag], fields_to_update=fields_to_update)
 
-    reset_solo_buttons(tags_table)
 
-    for row_index in rows_indexes:
-        new_button_stats = c.solo_button_stages[1]
-        tags_table[row_index]['solo_button'] = new_button_stats
-
-    fields_to_update[f'data.selectedTagsStats'] = tags_table
-    fields_to_update[f'state.selectedSoloMode'] = 'intersection'
-
-    f.update_play_intervals_by_table(tags_table, 'intersection', fields_to_update)
-
-    fields_to_update['data.scrollIntoView'] = 'videoPlayer'
-    fields_to_update['state.combinationLoading'] = False
 

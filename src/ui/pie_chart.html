@@ -1,30 +1,48 @@
-<h1 style="margin-top: 50px">BACKLOG</h1>
+<sly-card
+        title="Tags in PieChart form"
+        subtitle="frame tags stats in pie chart form"
 
-<sly-card class="custom-sly-card-border-radius"
-          style="margin: 5px 0; padding: 16px 25px; padding-bottom: 10px; width: 100%;">
-    {{state.pieChartSelectedSector}}
-    <sly-field title="Tags on PieChart"
-               description="frame tags stats in pie chart form"
-               style="width: 100%; margin-bottom: 0"
-               class="mt10">
+        v-loading="state.loadingPieChart" element-loading-text="Loading..."
+        class="custom-sly-card-border-radius"
+        style="margin: 5px 0; padding: 16px 25px; padding-bottom: 10px; width: 100%;">
 
 
         <div
-                style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+                style="display: flex; flex-direction: row; align-items: center; justify-content: center;
+                        width: 100%">
 
-            <sly-plotly v-loading="false" element-loading-text="Loading..."
-                        :content="data.tagsOnPieChart"
-                        @chart-click="(e) => {
+
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;
+                        width: 50%">
+                <h2 style="">Selected tag: {{state.pieChartSelectedSector.label}}</h2>
+                <sly-plotly v-loading="false" element-loading-text="Loading..."
+                            :content="data.tagsOnPieChart"
+                            @chart-click="(e) => {
                         if (e.points && e.points.length) {
-                        state.pieChartSelectedSector = {label: e.points[0].label, value: e.points[0].value}
+                        state.loadingPieChart=true
+                        state.pieChartSelectedSector = {label: e.points[0].label, value: '-'}
+                        command('pie_chart_tag_selected')
+
+
                         }}"
-            ></sly-plotly>
-<!--            <sly-plotly v-loading="false" element-loading-text="Loading..."-->
-<!--                        :content="data.pieChartExample"-->
-<!--                        @chart-click="state.pieChartSelectedSector = $event;"-->
-<!--            ></sly-plotly>-->
+                ></sly-plotly>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;
+                        width: 50%">
+                <h2 style="">Selected value: {{state.pieChartSelectedSector.value}}</h2>
+                <sly-plotly v-loading="false" element-loading-text="Loading..."
+                            :content="data.valuesOnPieChart"
+                            @chart-click="(e) => {
+                        if (e.points && e.points.length) {
+                        state.loadingPieChart=true
+                        state.pieChartSelectedSector = {label: state.pieChartSelectedSector.label, value: e.points[0].label}
+                        command('pie_chart_value_selected')
+
+                        }}"
+                ></sly-plotly>
+            </div>
         </div>
 
-    </sly-field>
+
 </sly-card>
 

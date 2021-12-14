@@ -37,18 +37,6 @@ def tags_table_row_selected(api: sly.Api, task_id, context, state, app_logger, f
     selected_tag = {'tag': str(selected_row.get('tag', '')),
                     'value': str(selected_row.get('value', ''))}
 
-    tags_table = g.api.app.get_field(g.task_id, 'data.selectedTagsStats')
-    rows_indexes = f.get_table_row_indexes_by_tags([selected_tag], tags_table)
+    f.set_solo_buttons_by_tags(selected_tags=[selected_tag], fields_to_update=fields_to_update)
 
-    f.reset_solo_buttons(tags_table)
-
-    for row_index in rows_indexes:
-        new_button_stats = c.solo_button_stages[1]
-        tags_table[row_index]['solo_button'] = new_button_stats
-
-    fields_to_update[f'data.selectedTagsStats'] = tags_table
-
-    f.update_play_intervals_by_table(tags_table, state['selectedSoloMode'], fields_to_update)
-
-    fields_to_update['data.scrollIntoView'] = 'videoPlayer'
 

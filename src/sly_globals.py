@@ -48,6 +48,7 @@ project_custom_data = f.get_project_custom_data(project_id)
 tags2stats = {}
 item2stats = project_custom_data.get('item2stats', {})  # item_id -> his stats
 
+tag2chart = {}
 
 video_id = None
 videos2annotations = {}

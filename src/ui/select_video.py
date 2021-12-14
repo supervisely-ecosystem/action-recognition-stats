@@ -212,13 +212,20 @@ def fill_pie_chart(tags_stats_in_table_form, fields_to_update):
 
             labels_with_values[label] = labels_with_values.get(label, 0) + tags_count_for_this_value
 
-    chart_data = [{
+    tag_chart_data = [{
         'labels': list(labels_with_values.keys()),
         'values': list(labels_with_values.values()),
         "type": "pie"
     }]
 
-    fields_to_update['data.tagsOnPieChart.data'] = chart_data
+    fields_to_update['data.tagsOnPieChart.data'] = tag_chart_data
+
+    if len(tag_chart_data[0]['labels']) > 0:
+        first_tag_name = tag_chart_data[0]['labels'][0]
+        f.fill_pie_chart_values_by_tag_name(tag_name=first_tag_name,
+                                            fields_to_update=fields_to_update)
+
+        fields_to_update['state.pieChartSelectedSector.label'] = first_tag_name
 
 
 @g.my_app.callback("select_video")

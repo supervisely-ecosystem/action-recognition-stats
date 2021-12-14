@@ -280,3 +280,49 @@ def get_video_workers_by_id(worker_type, video_id):
         return item_info.get(worker_type, [])
 
 
+def get_values_chart_for_tag(tag_name):
+    values_dict = g.tags2stats.get(tag_name)
+
+    labels = []
+    values = []
+
+    if values_dict is not None:
+        for value, value_data in values_dict.items():
+            labels.append(value)
+            values.append(value_data.get('tagged_frames', 0))
+
+    return labels, values
+
+
+def fill_pie_chart_values_by_tag_name(tag_name, fields_to_update):
+    labels, values = get_values_chart_for_tag(tag_name)
+
+    tag_chart_data = [{
+        'labels': labels,
+        'values': values,
+        "type": "pie"
+    }]
+
+    fields_to_update['data.valuesOnPieChart.data'] = tag_chart_data
+
+
+def set_solo_buttons_by_tags(selected_tags, fields_to_update):
+    tags_table = g.api.app.get_field(g.task_id, 'data.selectedTagsStats')
+    rows_indexes = get_table_row_indexes_by_tags(selected_tags, tags_table)
+
+    reset_solo_buttons(tags_table)
+
+    for row_index in rows_indexes:
+        new_button_stats = c.solo_button_stages[1]
+        tags_table[row_index]['solo_button'] = new_button_stats
+
+    fields_to_update[f'data.selectedTagsStats'] = tags_table
+    fields_to_update[f'state.selectedSoloMode'] = 'intersection'
+
+    update_play_intervals_by_table(tags_table, 'intersection', fields_to_update)
+
+    fields_to_update['data.scrollIntoView'] = 'videoPlayer'
+    fields_to_update['state.combinationLoading'] = False
+
+
+
