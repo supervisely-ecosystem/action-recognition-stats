@@ -1,5 +1,5 @@
 <div align="center" markdown>
-<img src=""/>
+<img src="https://i.imgur.com/pR3m2EX.jpg"/>
 
 
 # Action Recognition Stats Tool
