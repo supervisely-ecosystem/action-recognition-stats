@@ -9,6 +9,7 @@
   <a href="#How-To-Run">How To Run</a> •
   <a href="#Common-apps">Common Apps</a> •
   <a href="#Demo">Demo</a>
+  <a href="#Screenshot">Sceenshot</a>
 </p>
 
 [![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervise.ly/apps/supervisely-ecosystem/action-recognition-stats)
