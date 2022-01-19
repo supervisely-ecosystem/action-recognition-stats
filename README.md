@@ -43,13 +43,13 @@ Application key points:
 
 This application cooperate with next Supervisely Applications ⬇️ 
 
-- [Action Recognition Labeling](https://ecosystem.supervise.ly/apps/action-recognition-labeling) — use for label data
+- [Action Recognition Labeling](https://ecosystem.supervise.ly/apps/action-recognition-labeling) — use to label data
 
     <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/action-recognition-labeling" src="https://imgur.com/3aCwsQ0.png" width="350px"/>
 
 
 # Demo
-<a data-key="sly-embeded-video-link" href="" data-video-code="">
+<a data-key="sly-embeded-video-link" href="https://youtu.be/ZC6jIvrWD8c" data-video-code="ZC6jIvrWD8c">
     <img src="" alt="SLY_EMBEDED_VIDEO_LINK"  width="70%">
 </a>
 
