@@ -35,7 +35,7 @@ Application key points:
 # How to Run
 
 ### 1. Add [Action Recognition Stats Tool](https://ecosystem.supervise.ly/apps/action-recognition-stats) to your team from Ecosystem.
-<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/action-recognition-stats" src="https://i.imgur.com/HQHmcD5.png" width="350px" style='padding-bottom: 20px'/>  
+<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/action-recognition-stats" src="https://imgur.com/TZpzszz.png" width="350px" style='padding-bottom: 20px'/>  
 
 ### 2. Run app from the context menu of Videos Project:
 <img src="https://imgur.com/TMgacQE.png" width="70%"/>
