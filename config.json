@@ -1,17 +1,27 @@
 {
-  "name": "Group reference objects into batches",
+  "name": "Render Video Labels to MP4",
   "type": "app",
   "categories": [
-    "retail",
-    "reference items"
+    "videos",
+    "presentation"
   ],
-  "description": "Group items by selected columns from CSV catalog",
-  "docker_image": "supervisely/base-py-sdk:6.1.48",
+  "description": "Creates presentation mp4 file based on labeled video",
+  "docker_image": "supervisely/base-py-sdk:6",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
-  "gui_template": "src/gui.html",
-  "task_location": "application_sessions",
-  "icon": "https://img.icons8.com/color/96/000000/separated-lists.png",
+  "modal_template_state": {
+    "videoId": "",
+    "allFrames": true,
+    "startFrame": 0,
+    "endFrame": 0,
+    "showClassName": true,
+    "thickness": 3,
+    "opacity": 50
+  },
+  "task_location": "workspace_tasks",
+  "isolate": true,
+  "headless": true,
+  "icon": "https://i.imgur.com/JH93zul.png",
   "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/Ab2GHSQ.png"
+  "poster": "https://i.imgur.com/4hmKT5z.png"
 }
