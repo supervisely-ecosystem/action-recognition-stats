@@ -1,29 +1,32 @@
 {
-  "name": "Import images",
+  "name": "Import dicom studies",
   "type": "app",
   "categories": [
-    "Import",
-    "Images"
+    "Import"
   ],
-  "description": "Import images without annotations from Team Files",
-  "docker_image": "supervisely/base-py-sdk:6.14.0",
+  "description": "Convert DICOM data to nrrd format and creates a new project with images grouped by selected metadata",
+  "docker_image": "supervisely/base-py-sdk:6.8.4",
+  "instance_version": "6.4.39",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "normalize_exif": false,
-    "remove_alpha_channel": false,
-    "convert_tiff": false,
-    "remove_source": true
+    "tagMode": "prepared",
+    "predefinedGroupTag": "StudyInstanceUID",
+    "manualGroupTag": null,
+    "uploadMeta": false,
+    "addTagsFromDcm": false,
+    "dcmTags": "{\n\t\"tags\": [\n\t\t\"Manufacturer\",\n\t\t\"ManufacturerModelName\",\n\t\t\"Modality\"\n\t]\n}"
   },
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/mDH9HA3.png",
+  "icon": "https://i.imgur.com/lAEupML.png",
+  "icon_cover": false,
   "icon_background": "#FFFFFF",
-  "instance_version": "6.4.45",
   "headless": true,
   "context_menu": {
     "target": [
+      "files_file",
       "files_folder"
     ]
   },
-  "poster": "https://i.imgur.com/bgCPgfa.png"
+  "poster": "https://i.imgur.com/o8bm60f.png"
 }
