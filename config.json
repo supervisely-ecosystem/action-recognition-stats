@@ -1,20 +1,12 @@
 {
-  "name": "CSV Products Catalog to Images Project",
-  "type": "app",
+  "name": "Instance Segmentation Collection",
+  "type": "collection",
   "categories": [
-    "Images"
+    "instance segmentation"
   ],
-  "description": "Convert .CSV catalog to Images Project",
-  "docker_image": "supervisely/base-py-sdk:6.1.102",
-  "main_script": "src/main.py",
-  "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/D8ffaAT.png",
-  "icon_cover": false,
+  "description": "Solve Instance Segmentation tasks",
+  "icon": "https://imgur.com/rkLWLqp.png",
   "icon_background": "#FFFFFF",
-  "context_menu": {
-    "target": [
-      "files_file"
-    ]
-  },
-  "poster": "https://imgur.com/7cEkX6w.jpg"
+  "icon_cover": false,
+  "poster": "https://i.imgur.com/X9NTc5X.png"
 }
