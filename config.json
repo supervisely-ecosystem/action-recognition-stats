@@ -1,17 +1,16 @@
 {
-  "name": "Synthetic videos for tracking",
+  "name": "Flying objects",
   "type": "app",
   "categories": [
-    "Synthetic Data",
-    "Videos"
+    "synthetic data"
   ],
-  "description": "Synthesize videos on annotated data",
-  "docker_image": "supervisely/base-py-sdk:6.1.84",
+  "description": "Generate synthetic data: flying foregrounds on top of backgrounds",
+  "docker_image": "supervisely/base-py-sdk:6.1.83",
   "main_script": "src/main.py",
   "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
   "isolate": true,
-  "icon": "https://i.imgur.com/vVzpFwu.png",
+  "icon": "https://img.icons8.com/color/100/000000/snitch.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
@@ -19,5 +18,5 @@
     ],
     "context_category": "Synthetic data"
   },
-  "poster": "https://imgur.com/1wvvNyY.png"
+  "poster": "https://i.imgur.com/pCcPRZn.png"
 }
