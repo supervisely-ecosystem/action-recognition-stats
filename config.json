@@ -1,30 +1,27 @@
 {
-  "name": "Visual Tagging",
+  "name": "Create JSON with reference items",
   "type": "app",
   "categories": [
-    "tagging"
+    "retail",
+    "reference items"
   ],
-  "description": "Assign tags to images using example images",
-  "docker_image": "supervisely/base-py-sdk:6.1.58",
+  "description": "Objects with specific tag will be treated as reference items",
+  "docker_image": "supervisely/base-py-sdk:6.1.48",
   "main_script": "src/main.py",
-  "gui_template": "src/gui.html",
-  "task_location": "application_sessions",
-  "isolate": true,
-  "integrated_into": [
-    "image_annotation_tool"
-  ],
-  "icon": "https://img.icons8.com/color/100/000000/medium-icons.png",
+  "modal_template": "src/modal.html",
+  "modal_template_state": {
+    "tag": "",
+    "keyImageField": ""
+  },
+  "task_location": "workspace_tasks",
+  "icon": "https://img.icons8.com/color/96/000000/product-documents.png",
   "icon_background": "#FFFFFF",
+  "headless": true,
+  "disable_stop": true,
   "context_menu": {
     "target": [
       "images_project"
     ]
   },
-  "hotkeys": [
-    {
-      "hotkey": "alt+t",
-      "command": "assign_tag"
-    }
-  ],
-  "poster": "https://i.imgur.com/LwvrJKf.png"
+  "poster": "https://i.imgur.com/Njx02pY.png"
 }
