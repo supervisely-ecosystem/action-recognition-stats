@@ -1,28 +1,23 @@
 {
-  "name": "Render video from images",
+  "name": "Convert Video Class Shape",
   "type": "app",
   "categories": [
-    "Videos"
+    "transform"
   ],
-  "description": "Creates video from images in dataset with selected frame rate and configurable label opacity",
-  "docker_image": "supervisely/base-py-sdk:6.1.94",
+  "description": "Converts shapes of classes on videos (e.g. polygon to bitmap) and all corresponding objects",
+  "docker_image": "supervisely/base-py-sdk:6.1.92",
   "main_script": "src/main.py",
+  "gui_template": "src/gui.html",
   "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "frameRate": 30,
-    "opacity": 50,
-    "thickness": 2
-  },
   "task_location": "workspace_tasks",
   "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/u7lHZDt.png",
+  "icon": "https://i.imgur.com/N2TmbHL.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "images_dataset"
+      "videos_project"
     ],
     "context_category": "Transform"
   },
-  "poster": "https://i.imgur.com/2o4AKdp.png"
+  "poster": "https://i.imgur.com/teQysZC.png"
 }
