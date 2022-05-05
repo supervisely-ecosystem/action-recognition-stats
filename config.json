@@ -1,24 +1,21 @@
 {
-  "name": "Create Trainset for SmartTool",
+  "name": "Objects thumbnail preview",
   "type": "app",
   "categories": [
-    "SmartTool",
-    "Training Data"
+    "Images"
   ],
-  "description": "Prepare training data for SmartTool",
-  "docker_image": "supervisely/base-py-sdk:6.1.44",
-  "main_script": "src/create_trainset_for_smarttool.py",
-  "modal_template": "src/modal.html",
+  "description": "Review images annotations object by object with ease",
+  "docker_image": "supervisely/base-py-sdk:v6.2.7",
+  "main_script": "src/main.py",
   "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
-  "isolate": true,
-  "icon": "https://img.icons8.com/fluent/96/000000/fantasy.png",
+  "icon": "https://i.imgur.com/4DQxmL0.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "images_project"
-    ],
-    "context_category": "Training data"
+      "images_project",
+      "images_dataset"
+    ]
   },
-  "poster": "https://i.imgur.com/8IwtO3h.png"
+  "poster": "https://i.imgur.com/qIHRw3A.png"
 }
