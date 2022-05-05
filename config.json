@@ -1,11 +1,10 @@
 {
-  "name": "Tags co-occurrence matrix",
+  "name": "Classes co-occurrence matrix",
   "type": "app",
   "categories": [
-    "report",
-    "tag"
+    "report"
   ],
-  "description": "Explore images for every combination of tags pairs in co-occurrence table",
+  "description": "Explore images for every combination of classes pairs in co-occurrence table",
   "docker_image": "supervisely/base-py-sdk:6",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
@@ -13,7 +12,7 @@
   "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
   "isolate": true,
-  "icon": "https://i.imgur.com/1dnzNCn.png",
+  "icon": "https://img.icons8.com/color/96/000000/attract-customers.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
@@ -22,5 +21,5 @@
     ],
     "context_root": "Report"
   },
-  "poster": "https://i.imgur.com/5p80yOt.png"
+  "poster": "https://i.imgur.com/fKgBq5x.png"
 }
