@@ -1,32 +1,27 @@
 {
-  "name": "Import dicom studies",
+  "name": "Import images groups",
   "type": "app",
   "categories": [
     "Import"
   ],
-  "description": "Convert DICOM data to nrrd format and creates a new project with images grouped by selected metadata",
-  "docker_image": "supervisely/base-py-sdk:6.8.4",
-  "instance_version": "6.4.39",
+  "description": "Import images groups connected via user defined tag",
+  "docker_image": "supervisely/base-py-sdk:6.8.3",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "tagMode": "prepared",
-    "predefinedGroupTag": "StudyInstanceUID",
-    "manualGroupTag": null,
-    "uploadMeta": false,
-    "addTagsFromDcm": false,
-    "dcmTags": "{\n\t\"tags\": [\n\t\t\"Manufacturer\",\n\t\t\"ManufacturerModelName\",\n\t\t\"Modality\"\n\t]\n}"
+    "groupTagName": "group_name"
   },
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/lAEupML.png",
+  "icon": "https://i.imgur.com/MxlNwDM.png",
   "icon_cover": false,
   "icon_background": "#FFFFFF",
   "headless": true,
+  "instance_version": "6.4.39",
   "context_menu": {
     "target": [
       "files_file",
       "files_folder"
     ]
   },
-  "poster": "https://i.imgur.com/o8bm60f.png"
+  "poster": "https://i.imgur.com/HQW7m9F.png"
 }
