@@ -1,18 +1,20 @@
 {
-  "name": "Action Recognition Labeling Tool",
+  "name": "CSV Products Catalog to Images Project",
   "type": "app",
   "categories": [
-    "labeling"
+    "Images"
   ],
-  "description": "Label videos for Action Recognition task",
-  "docker_image": "supervisely/base-py-sdk:6.3.0",
+  "description": "Convert .CSV catalog to Images Project",
+  "docker_image": "supervisely/base-py-sdk:6.1.102",
   "main_script": "src/main.py",
-  "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
-  "need_gpu": false,
-  "icon": "https://imgur.com/BJVjHij.png",
+  "icon": "https://i.imgur.com/D8ffaAT.png",
   "icon_cover": false,
   "icon_background": "#FFFFFF",
-  "instance_version": "6.4.21",
-  "poster": "https://imgur.com/qgytUat.png"
+  "context_menu": {
+    "target": [
+      "files_file"
+    ]
+  },
+  "poster": "https://imgur.com/7cEkX6w.jpg"
 }
