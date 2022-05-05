@@ -1,25 +1,19 @@
 {
-  "name": "Classes co-occurrence matrix",
+  "name": "Labeling Jobs Stats",
   "type": "app",
   "categories": [
-    "report"
+    "report",
+    "labeling job"
   ],
-  "description": "Explore images for every combination of classes pairs in co-occurrence table",
+  "description": "General statistics for all labeling jobs in team",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/main.py",
+  "main_script": "src/labeling_jobs_stats.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {},
   "gui_template": "src/gui.html",
-  "task_location": "workspace_tasks",
+  "task_location": "application_sessions",
   "isolate": true,
-  "icon": "https://img.icons8.com/color/96/000000/attract-customers.png",
+  "icon": "https://img.icons8.com/color/96/000000/group-of-projects.png",
   "icon_background": "#FFFFFF",
-  "context_menu": {
-    "target": [
-      "images_project",
-      "images_dataset"
-    ],
-    "context_root": "Report"
-  },
-  "poster": "https://i.imgur.com/fKgBq5x.png"
+  "poster": "https://i.imgur.com/XThSU5x.png"
 }
