@@ -1,27 +1,31 @@
 {
-  "name": "Images project to videos project",
+  "name": "Resize images",
   "type": "app",
   "categories": [
-    "Transform"
+    "transform"
   ],
-  "description": "Creates video project from images project",
-  "docker_image": "supervisely/base-py-sdk:6.1.95",
-  "main_script": "src/main.py",
+  "description": "for both images and their annotations",
+  "docker_image": "supervisely/base-py-sdk:6.1.73",
+  "main_script": "src/resize_images.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "frameRate": 30,
-    "allDatasets": true,
-    "selectedDatasets": []
+    "size": {
+      "width": 256,
+      "height": 256,
+      "proportional": false
+    },
+    "projectName": "resized"
   },
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/4icHPC1.png",
-  "icon_background": "#FFFFFF",
+  "isolate": true,
   "headless": true,
+  "icon": "https://i.imgur.com/ZSM70pg.png",
+  "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
       "images_project"
     ],
     "context_category": "Transform"
   },
-  "poster": "https://i.imgur.com/eHExwt3.png"
+  "poster": "https://i.imgur.com/R0d7RSW.png"
 }
