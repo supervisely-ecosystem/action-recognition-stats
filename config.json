@@ -1,18 +1,18 @@
 {
-  "name": "Merge classes",
+  "name": "Convert Class Shape",
   "type": "app",
   "categories": [
     "project classes",
     "transform"
   ],
-  "description": "Merge multiple classes with same shape to a single one",
+  "description": "Converts shapes of classes (e.g. polygon to bitmap) and all corresponding objects",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/merge_classes.py",
+  "main_script": "src/convert_class_shape.py",
   "gui_template": "src/gui.html",
   "modal_template": "src/modal.html",
   "task_location": "workspace_tasks",
   "isolate": true,
-  "icon": "https://img.icons8.com/color/96/000000/merge-files.png",
+  "icon": "https://i.imgur.com/TxR0dfX.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
@@ -20,5 +20,5 @@
     ],
     "context_category": "Transform"
   },
-  "poster": "https://i.imgur.com/CdTLI9w.png"
+  "poster": "https://i.imgur.com/FTrBajv.png"
 }
