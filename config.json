@@ -1,30 +1,20 @@
 {
-  "name": "Add properties to image from CSV",
+  "name": "Create users from CSV",
   "type": "app",
   "categories": [
-    "tag"
+    "User Management"
   ],
-  "description": "Match image tag with CSV columns and add row values to image",
+  "description": "Only instance admin has permissions to run it",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/main.py",
-  "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "csvPath": "",
-    "tagName": "",
-    "columnName": "",
-    "assignAs": "metadata",
-    "resolve": "skip",
-    "resultProjectName": ""
-  },
-  "task_location": "workspace_tasks",
-  "icon": "https://img.icons8.com/color/96/000000/add-property.png",
+  "main_script": "src/create_users_from_csv.py",
+  "task_location": "application_sessions",
+  "icon": "https://img.icons8.com/color/96/000000/group.png",
   "icon_background": "#FFFFFF",
   "headless": true,
-  "disable_stop": true,
   "context_menu": {
     "target": [
-      "images_project"
+      "files_file"
     ]
   },
-  "poster": "https://i.imgur.com/Wshzsv0.png"
+  "poster": "https://i.imgur.com/I3gDQn7.png"
 }
