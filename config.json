@@ -1,27 +1,25 @@
 {
-  "name": "Render Video Labels to MP4",
+  "name": "Video objects stats for every class",
   "type": "app",
   "categories": [
+    "report",
     "videos",
-    "presentation"
+    "data exploration"
   ],
-  "description": "Creates presentation mp4 file based on labeled video",
+  "description": "The number of objects, figures and frames for every class for every dataset",
   "docker_image": "supervisely/base-py-sdk:6",
   "main_script": "src/main.py",
+  "gui_template": "src/gui.html",
   "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "videoId": "",
-    "allFrames": true,
-    "startFrame": 0,
-    "endFrame": 0,
-    "showClassName": true,
-    "thickness": 3,
-    "opacity": 50
-  },
   "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/JH93zul.png",
+  "icon": "https://i.imgur.com/3JATXzl.png",
   "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/4hmKT5z.png"
+  "context_menu": {
+    "target": [
+      "videos_project",
+      "videos_dataset"
+    ],
+    "context_root": "Report"
+  },
+  "poster": "https://i.imgur.com/sIUn29m.png"
 }
