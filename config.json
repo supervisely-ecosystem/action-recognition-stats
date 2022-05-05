@@ -1,12 +1,22 @@
 {
-  "name": "Action Recognition",
-  "type": "collection",
+  "name": "Crop objects on images",
+  "type": "app",
   "categories": [
-    "retail"
+    "Transforms",
+    "Images"
   ],
-  "description": "Label and Review videos for Action Recognition task",
-  "icon": "https://imgur.com/kMbFKxN.png",
+  "description": "Creates new project with cropped objects",
+  "docker_image": "supervisely/base-py-sdk:6.1.101",
+  "main_script": "src/main.py",
+  "gui_template": "src/gui.html",
+  "task_location": "workspace_tasks",
+  "icon": "https://img.icons8.com/color/100/000000/crop--v1.png",
   "icon_background": "#FFFFFF",
-  "icon_cover": false,
-  "poster": "https://imgur.com/CBAvlra.png"
+  "context_menu": {
+    "target": [
+      "images_project"
+    ],
+    "context_category": "Transform"
+  },
+  "poster": "https://i.imgur.com/TslAtO8.png"
 }
