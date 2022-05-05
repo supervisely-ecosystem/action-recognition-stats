@@ -1,26 +1,29 @@
 {
-  "name": "Labeler First Time Through",
+  "name": "Object Size Stats",
   "type": "app",
   "categories": [
     "report",
-    "labeling job",
-    "member"
+    "images",
+    "data exploration"
   ],
-  "description": "First Time Through ratio shows how many items labeler annotated right the first time (i.e. reviewer accepted his work on first round).",
+  "description": "Detailed statistics and distribution of object sizes (width, height, area)",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/labeler_ftt.py",
+  "main_script": "src/object_size_stats.py",
   "modal_template": "src/modal.html",
-  "modal_template_state": {},
+  "modal_template_state": {
+    "samplePercent": 25
+  },
   "gui_template": "src/gui.html",
-  "task_location": "application_sessions",
+  "task_location": "workspace_tasks",
   "isolate": true,
-  "icon": "https://img.icons8.com/fluent/96/000000/purposeful-man.png",
-  "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "team_member"
+      "images_project",
+      "images_dataset"
     ],
     "context_root": "Report"
   },
-  "poster": "https://i.imgur.com/yH5I7au.png"
+  "icon": "https://i.imgur.com/4gNHwaq.png",
+  "icon_background": "#FFFFFF",
+  "poster": "https://i.imgur.com/NJzq6OM.png"
 }
