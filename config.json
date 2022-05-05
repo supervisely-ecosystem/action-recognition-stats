@@ -1,18 +1,21 @@
 {
-  "name": "Import videos from cloud storage",
+  "name": "Movie genre from its poster",
   "type": "app",
   "categories": [
     "import",
-    "videos"
+    "public data"
   ],
-  "description": "Import videos from cloud (Google Cloud Storage, Amazon S3, Microsoft Azure, ...)",
-  "docker_image": "supervisely/base-py-sdk:6.1.102",
+  "description": "Application imports kaggle dataset 'Movie genre from its poster' as supervisely project",
+  "docker_image": "supervisely/base-py-sdk:6",
   "main_script": "src/main.py",
-  "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/dAeEkoO.png",
+  "headless": true,
+  "icon": "https://i.imgur.com/lBfHJAi.png",
   "icon_background": "#FFFFFF",
-  "disable_stop": true,
-  "instance_version": "6.4.13",
-  "poster": "https://i.imgur.com/imzti2w.png"
+  "context_menu": {
+    "target": [
+      "files_file"
+    ]
+  },
+  "poster": "https://i.imgur.com/FVJg3fp.png"
 }
