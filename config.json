@@ -1,27 +1,28 @@
 {
-  "name": "Create JSON with reference items",
+  "name": "Extract frames from videos",
   "type": "app",
   "categories": [
-    "retail",
-    "reference items"
+    "videos"
   ],
-  "description": "Objects with specific tag will be treated as reference items",
-  "docker_image": "supervisely/base-py-sdk:6.1.48",
+  "description": "Read every n-th frame and save to images project",
+  "docker_image": "supervisely/base-py:6",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "tag": "",
-    "keyImageField": ""
+    "datasetsStructure": "keep original",
+    "framesStep": 10,
+    "projectName": "extracted-frames"
   },
   "task_location": "workspace_tasks",
-  "icon": "https://img.icons8.com/color/96/000000/product-documents.png",
-  "icon_background": "#FFFFFF",
+  "isolate": true,
   "headless": true,
-  "disable_stop": true,
+  "icon": "https://i.imgur.com/aINxyST.png",
+  "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "images_project"
+      "videos_project",
+      "videos_dataset"
     ]
   },
-  "poster": "https://i.imgur.com/Njx02pY.png"
+  "poster": "https://i.imgur.com/u2YnSZv.png"
 }
