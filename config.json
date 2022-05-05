@@ -1,24 +1,23 @@
 {
-  "name": "Convert Class Shape",
+  "name": "Rasterize objects on images",
   "type": "app",
   "categories": [
-    "project classes",
     "transform"
   ],
-  "description": "Converts shapes of classes (e.g. polygon to bitmap) and all corresponding objects",
+  "description": "Convert classes to bitmap and rasterize objects without intersections",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/convert_class_shape.py",
-  "gui_template": "src/gui.html",
-  "modal_template": "src/modal.html",
+  "main_script": "src/rasterize_objects_on_images.py",
   "task_location": "workspace_tasks",
+  "modal_template": "src/modal.html",
   "isolate": true,
-  "icon": "https://i.imgur.com/TxR0dfX.png",
+  "icon": "https://img.icons8.com/fluent/96/000000/roller-brush.png",
   "icon_background": "#FFFFFF",
+  "headless": true,
   "context_menu": {
     "target": [
       "images_project"
     ],
     "context_category": "Transform"
   },
-  "poster": "https://i.imgur.com/FTrBajv.png"
+  "poster": "https://i.imgur.com/CLlwsFC.png"
 }
