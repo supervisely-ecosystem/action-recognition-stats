@@ -1,31 +1,22 @@
 {
-  "name": "ilastik pixel classification",
+  "name": "Merge datasets",
   "type": "app",
   "categories": [
-    "labeling"
+    "Data Management"
   ],
-  "description": "Image Pixel Classification using ilastik",
-  "docker_image": "supervisely/ilastik:6.1.88",
-  "main_script": "src/main.py",
-  "modal_template": "src/modal.html",
+  "description": "Merge selected datasets with images or videos into a single one",
+  "docker_image": "supervisely/base-py-sdk:6.1.73",
+  "main_script": "src/merge_datasets.py",
   "gui_template": "src/gui.html",
-  "modal_template_state": {
-    "projectMode": "Create new Project",
-    "classes": [],
-    "classifierPath": ""
-  },
-  "task_location": "application_sessions",
-  "icon": "https://i.imgur.com/pIz4rq9.png",
+  "task_location": "workspace_tasks",
+  "icon": "https://i.imgur.com/DG3URUW.png",
   "icon_background": "#FFFFFF",
-  "isolate": true,
-  "instance_version": "6.4.20",
-  "integrated_into": [
-    "image_annotation_tool"
-  ],
   "context_menu": {
     "target": [
-      "images_project"
+      "images_project",
+      "videos_project"
     ]
   },
-  "poster": "https://i.imgur.com/ok6t92G.png"
+  "instance_version": "6.4.14",
+  "poster": "https://i.imgur.com/QF7FTZn.png"
 }
