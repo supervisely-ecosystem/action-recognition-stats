@@ -1,27 +1,26 @@
 {
-  "name": "Export as masks",
+  "name": "Import Pointclouds PLY",
   "type": "app",
   "categories": [
-    "Export"
+    "Import",
+    "Pointcloud"
   ],
-  "description": "For semantic segmentation task",
-  "docker_image": "supervisely/base-py-sdk:6.1.80",
-  "main_script": "src/export_as_masks.py",
+  "description": "Import pointclouds without annotations in .ply format from Team Files",
+  "docker_image": "supervisely/base-py-sdk:6.14.0",
+  "main_script": "src/main.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "humanMasks": true,
-    "machineMasks": true,
-    "thickness": 2
+    "remove_source": true
   },
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/Dz0f248.png",
+  "icon": "https://i.imgur.com/qqkqtX6.png",
   "icon_background": "#FFFFFF",
   "headless": true,
+  "instance_version": "6.4.45",
   "context_menu": {
     "target": [
-      "images_project"
-    ],
-    "context_root": "Download as"
+      "files_folder"
+    ]
   },
-  "poster": "https://i.imgur.com/nJGEa4m.png"
+  "poster": "https://i.imgur.com/o5O5YtJ.png"
 }
