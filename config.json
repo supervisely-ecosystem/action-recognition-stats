@@ -1,28 +1,17 @@
 {
-  "name": "Extract frames from videos",
+  "name": "Group reference objects into batches",
   "type": "app",
   "categories": [
-    "videos"
+    "retail",
+    "reference items"
   ],
-  "description": "Read every n-th frame and save to images project",
-  "docker_image": "supervisely/base-py:6",
+  "description": "Group items by selected columns from CSV catalog",
+  "docker_image": "supervisely/base-py-sdk:6.1.48",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "datasetsStructure": "keep original",
-    "framesStep": 10,
-    "projectName": "extracted-frames"
-  },
-  "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/aINxyST.png",
+  "gui_template": "src/gui.html",
+  "task_location": "application_sessions",
+  "icon": "https://img.icons8.com/color/96/000000/separated-lists.png",
   "icon_background": "#FFFFFF",
-  "context_menu": {
-    "target": [
-      "videos_project",
-      "videos_dataset"
-    ]
-  },
-  "poster": "https://i.imgur.com/u2YnSZv.png"
+  "poster": "https://i.imgur.com/Ab2GHSQ.png"
 }
