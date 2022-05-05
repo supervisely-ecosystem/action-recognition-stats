@@ -1,16 +1,20 @@
 {
-  "name": "Rasterize objects on images",
+  "name": "Unpack AnyShape Classes",
   "type": "app",
   "categories": [
+    "project classes",
     "transform"
   ],
-  "description": "Convert classes to bitmap and rasterize objects without intersections",
+  "description": "Split \"AnyShape\" classes to classes with strictly defined shapes (polygon, bitmap, ...)",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/rasterize_objects_on_images.py",
-  "task_location": "workspace_tasks",
+  "main_script": "src/unpack_anyshape.py",
   "modal_template": "src/modal.html",
+  "modal_template_state": {
+    "remove": true
+  },
+  "task_location": "workspace_tasks",
   "isolate": true,
-  "icon": "https://img.icons8.com/fluent/96/000000/roller-brush.png",
+  "icon": "https://img.icons8.com/color/96/000000/output.png",
   "icon_background": "#FFFFFF",
   "headless": true,
   "context_menu": {
@@ -19,5 +23,5 @@
     ],
     "context_category": "Transform"
   },
-  "poster": "https://i.imgur.com/CLlwsFC.png"
+  "poster": "https://i.imgur.com/TgYa3ln.png"
 }
