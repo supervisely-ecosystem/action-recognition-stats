@@ -1,21 +1,29 @@
 {
-  "name": "Export Metadata",
+  "name": "Import Metadata",
   "type": "app",
   "categories": [
-    "Export"
+    "Import"
   ],
-  "description": "Export Images Metadata from Project",
+  "description": "Import Metadata for Images in Project",
   "docker_image": "supervisely/base-py-sdk:6.1.59",
-  "main_script": "src/export_metadata.py",
+  "main_script": "src/import_metadata.py",
+  "modal_template": "src/modal.html",
+  "modal_template_state": {
+    "resolve": "replace",
+    "resolveOptions": [
+      "merge",
+      "replace"
+    ],
+    "inputPath": ""
+  },
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/ajc46R7.png",
+  "icon": "https://i.imgur.com/JMyT9V1.png",
   "icon_background": "#FFFFFF",
   "headless": true,
   "context_menu": {
     "target": [
       "images_project"
-    ],
-    "context_root": "Download as"
+    ]
   },
-  "poster": "https://i.imgur.com/segnZCF.png"
+  "poster": "https://i.imgur.com/hok1enC.png"
 }
