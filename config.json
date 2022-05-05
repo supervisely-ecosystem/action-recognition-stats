@@ -1,21 +1,26 @@
 {
-  "name": "Objects thumbnail preview",
+  "name": "Tags co-occurrence matrix",
   "type": "app",
   "categories": [
-    "Images"
+    "report",
+    "tag"
   ],
-  "description": "Review images annotations object by object with ease",
-  "docker_image": "supervisely/base-py-sdk:v6.2.7",
+  "description": "Explore images for every combination of tags pairs in co-occurrence table",
+  "docker_image": "supervisely/base-py-sdk:6",
   "main_script": "src/main.py",
+  "modal_template": "src/modal.html",
+  "modal_template_state": {},
   "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/4DQxmL0.png",
+  "isolate": true,
+  "icon": "https://i.imgur.com/1dnzNCn.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
       "images_project",
       "images_dataset"
-    ]
+    ],
+    "context_root": "Report"
   },
-  "poster": "https://i.imgur.com/qIHRw3A.png"
+  "poster": "https://i.imgur.com/5p80yOt.png"
 }
