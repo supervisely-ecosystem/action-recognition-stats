@@ -1,26 +1,24 @@
 {
-  "name": "Export only labeled items",
+  "name": "Import Cityscapes",
   "type": "app",
   "categories": [
-    "export"
+    "Import"
   ],
-  "description": "Export only labeled items and prepares downloadable tar archive",
-  "docker_image": "supervisely/base-py-sdk:6.1.73",
+  "description": "Import Cityscapes to Supervisely",
+  "docker_image": "supervisely/base-py-sdk:6.1.80",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
-  "modal_template_state": {},
+  "modal_template_state": {
+    "samplePercent": 80
+  },
   "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/hnLD4nM.png",
+  "icon": "https://i.imgur.com/UzgppSx.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "images_project",
-      "videos_project",
-      "point_cloud_project"
-    ],
-    "context_root": "Download as"
+      "files_folder",
+      "files_file"
+    ]
   },
-  "poster": "https://i.imgur.com/gUEuSc7.png"
+  "poster": "https://i.imgur.com/sfh2ILA.png"
 }
