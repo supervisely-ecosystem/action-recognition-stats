@@ -1,21 +1,27 @@
 {
-  "name": "Movie genre from its poster",
+  "name": "Import videos by URLs from txt file",
   "type": "app",
   "categories": [
-    "import",
-    "public data"
+    "videos",
+    "import"
   ],
-  "description": "Application imports kaggle dataset 'Movie genre from its poster' as supervisely project",
-  "docker_image": "supervisely/base-py-sdk:6",
+  "description": "Downloads videos by URLs and uploads them to Supervisely Storage",
+  "docker_image": "supervisely/base-py:6",
   "main_script": "src/main.py",
+  "modal_template": "src/modal.html",
+  "modal_template_state": {
+    "projectName": "my-videos",
+    "datasetName": "dataset-01"
+  },
   "task_location": "workspace_tasks",
+  "isolate": true,
   "headless": true,
-  "icon": "https://i.imgur.com/lBfHJAi.png",
+  "icon": "https://i.imgur.com/iJvQXPJ.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
       "files_file"
     ]
   },
-  "poster": "https://i.imgur.com/FVJg3fp.png"
+  "poster": "https://i.imgur.com/6T1dXGq.png"
 }
