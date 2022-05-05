@@ -1,20 +1,23 @@
 {
-  "name": "Import Images from CSV",
+  "name": "Import LAS format",
   "type": "app",
   "categories": [
-    "import"
+    "Import"
   ],
-  "description": "Upload images using .CSV file",
-  "docker_image": "supervisely/base-py-sdk:6.6.0",
+  "description": "Import LAS/LAZ format files to Supervisely 3D point cloud labeling tool",
+  "docker_image": "supervisely/base-py-sdk:6.1.90",
   "main_script": "src/main.py",
+  "modal_template": "src/modal.html",
+  "modal_template_state": {
+    "projectName": ""
+  },
   "task_location": "workspace_tasks",
-  "icon": "https://imgur.com/zlcLjAM.png",
-  "icon_cover": false,
+  "icon": "https://i.imgur.com/2N4L6uU.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "files_file"
+      "files_folder"
     ]
   },
-  "poster": "https://imgur.com/IcPLSjq.png"
+  "poster": "https://i.imgur.com/T8nscu4.png"
 }
