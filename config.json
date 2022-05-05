@@ -1,31 +1,13 @@
 {
-  "name": "Resize images",
-  "type": "app",
+  "name": "YOLOv5 collection",
+  "type": "collection",
   "categories": [
-    "transform"
+    "yolov5",
+    "neural network",
+    "detection"
   ],
-  "description": "for both images and their annotations",
-  "docker_image": "supervisely/base-py-sdk:6.1.73",
-  "main_script": "src/resize_images.py",
-  "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "size": {
-      "width": 256,
-      "height": 256,
-      "proportional": false
-    },
-    "projectName": "resized"
-  },
-  "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/ZSM70pg.png",
-  "icon_background": "#FFFFFF",
-  "context_menu": {
-    "target": [
-      "images_project"
-    ],
-    "context_category": "Transform"
-  },
-  "poster": "https://i.imgur.com/R0d7RSW.png"
+  "description": "All you need to work with YOLOv5",
+  "icon": "https://i.imgur.com/dncQdRn.png",
+  "icon_cover": true,
+  "poster": "https://i.imgur.com/X9NTc5X.png"
 }
