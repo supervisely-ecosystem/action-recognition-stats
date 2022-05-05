@@ -1,27 +1,21 @@
 {
-  "name": "Diff and Merge Images Projects",
+  "name": "Review labels side-by-side",
   "type": "app",
   "categories": [
-    "diff merge tools",
-    "images"
+    "labeling"
   ],
-  "description": "Visual diff and merge tool helps compare images in two projects",
-  "docker_image": "supervisely/base-py-sdk:6",
+  "description": "Filter objects and tags by user and copy them to working area",
+  "docker_image": "supervisely/base-py-sdk:6.1.97",
   "main_script": "src/main.py",
-  "modal_template": "src/modal.html",
-  "modal_width": 585,
-  "modal_template_state": {
-    "teamId1": null,
-    "workspaceId1": null,
-    "projectId1": null,
-    "teamId2": null,
-    "workspaceId2": null,
-    "projectId2": null
-  },
   "gui_template": "src/gui.html",
   "task_location": "application_sessions",
   "isolate": true,
-  "icon": "https://i.imgur.com/DEUcdnP.png",
+  "headless": false,
+  "instance_version": "6.4.20",
+  "integrated_into": [
+    "image_annotation_tool"
+  ],
+  "icon": "https://img.icons8.com/color/100/000000/rules-book.png",
   "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/vfDDYqh.png"
+  "poster": "https://i.imgur.com/xaR6uNF.png"
 }
