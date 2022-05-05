@@ -1,28 +1,26 @@
 {
-  "name": "Export activity as csv",
+  "name": "Export only labeled items",
   "type": "app",
   "categories": [
-    "report",
-    "labeling job",
-    "member",
     "export"
   ],
-  "description": "Download activity as csv file",
-  "docker_image": "supervisely/base-py-sdk:6.1.95",
+  "description": "Export only labeled items and prepares downloadable tar archive",
+  "docker_image": "supervisely/base-py-sdk:6.1.73",
   "main_script": "src/main.py",
+  "modal_template": "src/modal.html",
+  "modal_template_state": {},
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/pJEJ5zP.png",
+  "isolate": true,
+  "headless": true,
+  "icon": "https://i.imgur.com/hnLD4nM.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "team",
       "images_project",
       "videos_project",
-      "point_cloud_project",
-      "team_member",
-      "labeling_job"
+      "point_cloud_project"
     ],
-    "context_root": "Report"
+    "context_root": "Download as"
   },
-  "poster": "https://i.imgur.com/1C2S0T5.png"
+  "poster": "https://i.imgur.com/gUEuSc7.png"
 }
