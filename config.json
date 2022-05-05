@@ -1,11 +1,23 @@
 {
-  "name": "Classification collection",
-  "type": "collection",
+  "name": "Convert YOLO v5 to Supervisely format",
+  "type": "app",
   "categories": [
-    "neural network"
+    "yolov5",
+    "convert format"
   ],
-  "description": "Training, inference, ai-assisted labeling, synthetic data and more",
-  "icon": "https://i.imgur.com/ps4q6WO.png",
-  "icon_cover": true,
-  "poster": "https://i.imgur.com/X9NTc5X.png"
+  "description": "Transform YOLO v5 format to supervisely project",
+  "docker_image": "supervisely/base-py-sdk:6.1.45",
+  "main_script": "src/convert_yolov5_to_sly.py",
+  "task_location": "workspace_tasks",
+  "icon": "https://i.imgur.com/Zkr2Lix.png",
+  "icon_background": "#FFFFFF",
+  "isolate": true,
+  "headless": true,
+  "context_menu": {
+    "target": [
+      "files_folder",
+      "files_file"
+    ]
+  },
+  "poster": "https://i.imgur.com/1YEjnZa.png"
 }
