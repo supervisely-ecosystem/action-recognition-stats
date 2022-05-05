@@ -1,20 +1,30 @@
 {
-  "name": "Remote import",
+  "name": "Export pointcloud episodes in supervisely format",
   "type": "app",
   "categories": [
-    "import",
-    "http"
+    "export",
+    "3D"
   ],
-  "description": "Connect your remote storage and import data without duplication. Data is stored on your server but visible in Supervisely",
-  "docker_image": "supervisely/remote-import:1.0.0",
-  "main_script": "src/remote_import.py",
-  "gui_template": "src/gui.html",
+  "description": "Export project or dataset in Supervisely pointcloud episode format",
+  "docker_image": "supervisely/base-py-sdk:6.2.1",
+  "main_script": "src/main.py",
   "modal_template": "src/modal.html",
-  "modal_template_state": {},
+  "modal_template_state": {
+    "download_pcd": true,
+    "download_annotation": true,
+    "download_photocontext": true
+  },
   "task_location": "workspace_tasks",
   "isolate": true,
-  "icon_backup": "https://img.icons8.com/color/96/000000/cloud-link.png",
-  "icon": "https://img.icons8.com/color/96/000000/cloud-storage.png",
+  "headless": true,
+  "icon": "https://i.imgur.com/IIZpWnK.png",
   "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/2Frrx7i.png"
+  "context_menu": {
+    "target": [
+      "point_cloud_episodes_project",
+      "point_cloud_episodes_dataset"
+    ],
+    "context_root": "Download as"
+  },
+  "poster": "https://i.imgur.com/WiQ86yv.png"
 }
