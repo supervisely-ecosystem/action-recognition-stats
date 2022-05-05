@@ -1,17 +1,16 @@
 {
-  "name": "Import KITTI 3D",
+  "name": "Import Pascal VOC",
   "type": "app",
   "categories": [
-    "Import",
-    "3D"
+    "import"
   ],
-  "description": "Converts KITTI 3D format to Supervisely pointcloud format",
-  "docker_image": "supervisely/import-export-kitty:1.0.1",
+  "description": "Import public or custom data in Pascal VOC format to Supervisely",
+  "docker_image": "supervisely/base-py-sdk:6.1.92",
   "main_script": "src/main.py",
   "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
   "isolate": true,
-  "icon": "https://i.imgur.com/MMXXi82.png",
+  "icon": "https://i.imgur.com/pUqLuNq.png",
   "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/ECZhhR0.png"
+  "poster": "https://i.imgur.com/ykox2iS.png"
 }
