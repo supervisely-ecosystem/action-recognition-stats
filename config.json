@@ -1,29 +1,24 @@
 {
-  "name": "Classes stats for images",
+  "name": "Merge classes",
   "type": "app",
   "categories": [
-    "report",
-    "images",
-    "data exploration"
+    "project classes",
+    "transform"
   ],
-  "description": "Detailed statistics for all classes in images project",
+  "description": "Merge multiple classes with same shape to a single one",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/classes_stats_for_images.py",
-  "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "samplePercent": 25
-  },
+  "main_script": "src/merge_classes.py",
   "gui_template": "src/gui.html",
+  "modal_template": "src/modal.html",
   "task_location": "workspace_tasks",
   "isolate": true,
+  "icon": "https://img.icons8.com/color/96/000000/merge-files.png",
+  "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "images_project",
-      "images_dataset"
+      "images_project"
     ],
-    "context_root": "Report"
+    "context_category": "Transform"
   },
-  "icon": "https://img.icons8.com/fluent/96/000000/combo-chart.png",
-  "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/cISE5uw.png"
+  "poster": "https://i.imgur.com/CdTLI9w.png"
 }
