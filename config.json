@@ -1,21 +1,25 @@
 {
-  "name": "Copy image tags to objects",
+  "name": "Export to COCO",
   "type": "app",
   "categories": [
-    "tag"
+    "Export"
   ],
-  "description": "Tags and object classes can be customized",
-  "docker_image": "supervisely/base-py-sdk:6",
+  "description": "Converts Supervisely to COCO format and prepares tar archive for download",
+  "docker_image": "supervisely/base-py-sdk:6.1.95",
   "main_script": "src/main.py",
-  "gui_template": "src/gui.html",
+  "modal_template": "src/modal.html",
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/bi0gqDJ.png",
+  "icon": "https://i.imgur.com/9uY44aW.png",
   "icon_background": "#FFFFFF",
-  "disable_stop": true,
+  "headless": true,
+  "modal_template_state": {
+    "selectedFormat": "annotations"
+  },
   "context_menu": {
     "target": [
       "images_project"
-    ]
+    ],
+    "context_root": "Download as"
   },
-  "poster": "https://i.imgur.com/fAO66c3.png"
+  "poster": "https://imgur.com/hJPOgeu.png"
 }
