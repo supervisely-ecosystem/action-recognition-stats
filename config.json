@@ -1,22 +1,27 @@
 {
-  "name": "Flying objects",
+  "name": "AI assisted classification",
   "type": "app",
   "categories": [
-    "synthetic data"
+    "labeling"
   ],
-  "description": "Generate synthetic data: flying foregrounds on top of backgrounds",
-  "docker_image": "supervisely/base-py-sdk:6.1.83",
+  "description": "Use neural network in labeling interface to classify images and objects",
+  "docker_image": "supervisely/base-py-sdk:6.1.90",
   "main_script": "src/main.py",
   "gui_template": "src/gui.html",
-  "task_location": "workspace_tasks",
+  "task_location": "application_sessions",
   "isolate": true,
-  "icon": "https://img.icons8.com/color/100/000000/snitch.png",
+  "headless": false,
+  "integrated_into": [
+    "image_annotation_tool"
+  ],
+  "icon": "https://i.imgur.com/8UbfUjl.png",
   "icon_background": "#FFFFFF",
-  "context_menu": {
-    "target": [
-      "images_project"
-    ],
-    "context_category": "Synthetic data"
-  },
-  "poster": "https://i.imgur.com/pCcPRZn.png"
+  "hotkeys": [
+    {
+      "hotkey": "ctrl+m",
+      "command": "inference"
+    }
+  ],
+  "instance_version": "6.4.20",
+  "poster": "https://i.imgur.com/hh0VJ0S.png"
 }
