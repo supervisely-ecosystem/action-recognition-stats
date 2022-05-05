@@ -1,27 +1,17 @@
 {
-  "name": "Import images groups",
+  "name": "Import KITTI 3D",
   "type": "app",
   "categories": [
-    "Import"
+    "Import",
+    "3D"
   ],
-  "description": "Import images groups connected via user defined tag",
-  "docker_image": "supervisely/base-py-sdk:6.8.3",
+  "description": "Converts KITTI 3D format to Supervisely pointcloud format",
+  "docker_image": "supervisely/import-export-kitty:1.0.1",
   "main_script": "src/main.py",
-  "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "groupTagName": "group_name"
-  },
+  "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/MxlNwDM.png",
-  "icon_cover": false,
+  "isolate": true,
+  "icon": "https://i.imgur.com/MMXXi82.png",
   "icon_background": "#FFFFFF",
-  "headless": true,
-  "instance_version": "6.4.39",
-  "context_menu": {
-    "target": [
-      "files_file",
-      "files_folder"
-    ]
-  },
-  "poster": "https://i.imgur.com/HQW7m9F.png"
+  "poster": "https://i.imgur.com/ECZhhR0.png"
 }
