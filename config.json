@@ -1,25 +1,21 @@
 {
-  "name": "Apply NN to videos project",
+  "name": "Images thumbnail preview",
   "type": "app",
   "categories": [
-    "neural network",
-    "video"
+    "Images"
   ],
-  "description": "NN Inference on videos in project or dataset",
-  "docker_image": "supervisely/base-py-sdk:6.1.94",
+  "description": "Preview images as a grid gallery",
+  "docker_image": "supervisely/base-py-sdk:v6.2.7",
   "main_script": "src/main.py",
   "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": false,
-  "icon": "https://imgur.com/HPtoMih.png",
+  "icon": "https://i.imgur.com/fLX5COF.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "videos_project",
-      "videos_dataset"
-    ],
-    "context_root": "Neural Networks"
+      "images_project",
+      "images_dataset"
+    ]
   },
-  "poster": "https://imgur.com/dE7nQl6.png"
+  "poster": "https://i.imgur.com/CKrHFs4.png"
 }
