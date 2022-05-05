@@ -1,28 +1,12 @@
 {
-  "name": "Create foreground mask",
-  "type": "app",
+  "name": "Grocery store shelves",
+  "description": "Labeled images of products on the shelve: snacks, chips, crisps",
+  "type": "project",
   "categories": [
     "images",
-    "alpha channel"
+    "retail"
   ],
-  "description": "Create foreground mask from alpha channel of image",
-  "docker_image": "supervisely/base-py-sdk:6.1.56",
-  "main_script": "src/main.py",
-  "task_location": "workspace_tasks",
-  "headless": true,
-  "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "threshold": 250,
-    "fuzzy": true
-  },
-  "isolate": true,
-  "icon": "https://i.imgur.com/WPXor5h.png",
-  "icon_cover": true,
-  "context_menu": {
-    "target": [
-      "images_project"
-    ],
-    "context_category": "Alpha Channel"
-  },
-  "poster": "https://i.imgur.com/XhsFGR3.png"
+  "icon": "https://img.icons8.com/color/100/000000/grocery-shelf.png",
+  "icon_background": "#FFFFFF",
+  "poster": "https://i.imgur.com/RqqLpLr.png"
 }
