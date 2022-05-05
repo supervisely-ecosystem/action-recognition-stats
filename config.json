@@ -1,27 +1,28 @@
 {
-  "name": "Unpack AnyShape Classes",
+  "name": "Create foreground mask",
   "type": "app",
   "categories": [
-    "project classes",
-    "transform"
+    "images",
+    "alpha channel"
   ],
-  "description": "Split \"AnyShape\" classes to classes with strictly defined shapes (polygon, bitmap, ...)",
-  "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/unpack_anyshape.py",
+  "description": "Create foreground mask from alpha channel of image",
+  "docker_image": "supervisely/base-py-sdk:6.1.56",
+  "main_script": "src/main.py",
+  "task_location": "workspace_tasks",
+  "headless": true,
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "remove": true
+    "threshold": 250,
+    "fuzzy": true
   },
-  "task_location": "workspace_tasks",
   "isolate": true,
-  "icon": "https://img.icons8.com/color/96/000000/output.png",
-  "icon_background": "#FFFFFF",
-  "headless": true,
+  "icon": "https://i.imgur.com/WPXor5h.png",
+  "icon_cover": true,
   "context_menu": {
     "target": [
       "images_project"
     ],
-    "context_category": "Transform"
+    "context_category": "Alpha Channel"
   },
-  "poster": "https://i.imgur.com/TgYa3ln.png"
+  "poster": "https://i.imgur.com/XhsFGR3.png"
 }
