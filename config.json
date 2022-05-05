@@ -1,29 +1,30 @@
 {
-  "name": "Import Metadata",
+  "name": "Add properties to image from CSV",
   "type": "app",
   "categories": [
-    "Import"
+    "tag"
   ],
-  "description": "Import Metadata for Images in Project",
-  "docker_image": "supervisely/base-py-sdk:6.1.59",
-  "main_script": "src/import_metadata.py",
+  "description": "Match image tag with CSV columns and add row values to image",
+  "docker_image": "supervisely/base-py-sdk:6",
+  "main_script": "src/main.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "resolve": "replace",
-    "resolveOptions": [
-      "merge",
-      "replace"
-    ],
-    "inputPath": ""
+    "csvPath": "",
+    "tagName": "",
+    "columnName": "",
+    "assignAs": "metadata",
+    "resolve": "skip",
+    "resultProjectName": ""
   },
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/JMyT9V1.png",
+  "icon": "https://img.icons8.com/color/96/000000/add-property.png",
   "icon_background": "#FFFFFF",
   "headless": true,
+  "disable_stop": true,
   "context_menu": {
     "target": [
       "images_project"
     ]
   },
-  "poster": "https://i.imgur.com/hok1enC.png"
+  "poster": "https://i.imgur.com/Wshzsv0.png"
 }
