@@ -1,22 +1,17 @@
 {
-  "name": "Copy project between instances",
+  "name": "Import from Google Cloud Storage",
   "type": "app",
   "categories": [
     "import"
   ],
-  "description": "Copies images + annotations + images metadata",
+  "description": "Upload images by reading links (Google Cloud Storage) from CSV file",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/main.py",
+  "main_script": "src/import_gcs_links.py",
   "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "serverAddress": "",
-    "apiToken": "",
-    "projectId": ""
-  },
-  "task_location": "workspace_tasks",
+  "gui_template": "src/gui.html",
+  "task_location": "application_sessions",
   "isolate": true,
-  "headless": true,
-  "icon": "https://img.icons8.com/color/96/000000/networking-manager.png",
+  "icon": "https://i.imgur.com/90izaga.png",
   "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/xmuBeht.png"
+  "poster": "https://i.imgur.com/MwQqR5r.png"
 }
