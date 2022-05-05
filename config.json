@@ -1,25 +1,23 @@
 {
-  "name": "Labels spatial distribution",
+  "name": "ImgAug Studio",
   "type": "app",
   "categories": [
-    "report",
-    "images",
-    "data exploration"
+    "augmentations",
+    "images"
   ],
-  "description": "Build labels distribution heatmap for dataset.",
-  "docker_image": "supervisely/base-py-sdk:6.4.3",
+  "description": "Visualize and build augmentation pipeline with ImgAug",
+  "docker_image": "supervisely/base-py-sdk:6.1.80",
   "main_script": "src/main.py",
   "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
-  "isolate": true,
+  "icon": "https://img.icons8.com/fluent/100/000000/lab-items.png",
+  "icon_background": "#FFFFFF",
+  "disable_stop": true,
   "context_menu": {
     "target": [
       "images_project"
-    ],
-    "context_root": "Report"
+    ]
   },
-  "icon": "https://i.imgur.com/hH7CUDa.png",
-  "icon_cover": true,
-  "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/MGi3NXG.jpg"
+  "instance_version": "6.4.10",
+  "poster": "https://i.imgur.com/biseFXX.png"
 }
