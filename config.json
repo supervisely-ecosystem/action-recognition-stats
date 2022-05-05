@@ -1,16 +1,28 @@
 {
-  "name": "Import Videos from Team Files",
+  "name": "Render video from images",
   "type": "app",
   "categories": [
-    "Import"
+    "Videos"
   ],
-  "description": "Import selected videos from Team Files to selected destination",
-  "docker_image": "supervisely/base-py-sdk:6.1.93",
+  "description": "Creates video from images in dataset with selected frame rate and configurable label opacity",
+  "docker_image": "supervisely/base-py-sdk:6.1.94",
   "main_script": "src/main.py",
-  "gui_template": "src/gui.html",
+  "modal_template": "src/modal.html",
+  "modal_template_state": {
+    "frameRate": 30,
+    "opacity": 50,
+    "thickness": 2
+  },
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/DHV83NM.png",
+  "isolate": true,
+  "headless": true,
+  "icon": "https://i.imgur.com/u7lHZDt.png",
   "icon_background": "#FFFFFF",
-  "disable_stop": true,
-  "poster": "https://i.imgur.com/Wo7XOMm.png"
+  "context_menu": {
+    "target": [
+      "images_dataset"
+    ],
+    "context_category": "Transform"
+  },
+  "poster": "https://i.imgur.com/2o4AKdp.png"
 }
