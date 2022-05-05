@@ -1,30 +1,26 @@
 {
-  "name": "Export pointcloud episodes in supervisely format",
+  "name": "Export to Pascal VOC",
   "type": "app",
   "categories": [
-    "export",
-    "3D"
+    "Export"
   ],
-  "description": "Export project or dataset in Supervisely pointcloud episode format",
-  "docker_image": "supervisely/base-py-sdk:6.2.1",
-  "main_script": "src/main.py",
+  "description": "Converts Supervisely Project to Pascal VOC format",
+  "docker_image": "supervisely/base-py-sdk:6.1.73",
+  "main_script": "src/export-pascal-voc.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "download_pcd": true,
-    "download_annotation": true,
-    "download_photocontext": true
+    "pascalContourThickness": 3,
+    "trainSplitCoef": 0.8
   },
   "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/IIZpWnK.png",
+  "icon": "https://i.imgur.com/zTseThz.png",
   "icon_background": "#FFFFFF",
+  "headless": true,
   "context_menu": {
     "target": [
-      "point_cloud_episodes_project",
-      "point_cloud_episodes_dataset"
+      "images_project"
     ],
     "context_root": "Download as"
   },
-  "poster": "https://i.imgur.com/WiQ86yv.png"
+  "poster": "https://i.imgur.com/p55MHAc.png"
 }
