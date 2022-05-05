@@ -1,23 +1,18 @@
 {
-  "name": "Import LAS format",
+  "name": "Import videos from cloud storage",
   "type": "app",
   "categories": [
-    "Import"
+    "import",
+    "videos"
   ],
-  "description": "Import LAS/LAZ format files to Supervisely 3D point cloud labeling tool",
-  "docker_image": "supervisely/base-py-sdk:6.1.90",
+  "description": "Import videos from cloud (Google Cloud Storage, Amazon S3, Microsoft Azure, ...)",
+  "docker_image": "supervisely/base-py-sdk:6.1.102",
   "main_script": "src/main.py",
-  "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "projectName": ""
-  },
+  "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/2N4L6uU.png",
+  "icon": "https://i.imgur.com/dAeEkoO.png",
   "icon_background": "#FFFFFF",
-  "context_menu": {
-    "target": [
-      "files_folder"
-    ]
-  },
-  "poster": "https://i.imgur.com/T8nscu4.png"
+  "disable_stop": true,
+  "instance_version": "6.4.13",
+  "poster": "https://i.imgur.com/imzti2w.png"
 }
