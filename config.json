@@ -1,25 +1,26 @@
 {
-  "name": "Export to COCO",
+  "name": "Export to MOT",
   "type": "app",
   "categories": [
-    "Export"
+    "convert format"
   ],
-  "description": "Converts Supervisely to COCO format and prepares tar archive for download",
-  "docker_image": "supervisely/base-py-sdk:6.1.95",
+  "description": "Converts Supervisely to MOT format and prepares tar archive for download",
+  "docker_image": "supervisely/base-py-sdk:6.1.94",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
-  "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/9uY44aW.png",
-  "icon_background": "#FFFFFF",
-  "headless": true,
   "modal_template_state": {
-    "selectedFormat": "annotations"
+    "shapes": true
   },
+  "task_location": "workspace_tasks",
+  "isolate": true,
+  "headless": true,
+  "icon": "https://i.imgur.com/ihJKVt4.png",
+  "icon_cover": true,
   "context_menu": {
     "target": [
-      "images_project"
+      "videos_project"
     ],
     "context_root": "Download as"
   },
-  "poster": "https://imgur.com/hJPOgeu.png"
+  "poster": "https://i.imgur.com/wDdLM8H.png"
 }
