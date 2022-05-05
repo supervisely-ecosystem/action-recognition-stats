@@ -1,19 +1,21 @@
 {
-  "name": "Labeling Jobs Stats",
+  "name": "Labeling Events Stats",
   "type": "app",
   "categories": [
     "report",
-    "labeling job"
+    "labeling job",
+    "member"
   ],
-  "description": "General statistics for all labeling jobs in team",
-  "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/labeling_jobs_stats.py",
+  "description": "Total number of labeling actions and annotated unique images in a time interval",
+  "docker_image": "supervisely/base-py-sdk:6.1.91",
+  "main_script": "src/labeling_events_stats.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {},
   "gui_template": "src/gui.html",
   "task_location": "application_sessions",
   "isolate": true,
-  "icon": "https://img.icons8.com/color/96/000000/group-of-projects.png",
+  "icon": "https://img.icons8.com/color/96/000000/graph.png",
   "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/XThSU5x.png"
+  "instance_version": "6.4.22",
+  "poster": "https://i.imgur.com/Z112V53.png"
 }
