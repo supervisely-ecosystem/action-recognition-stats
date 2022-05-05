@@ -1,24 +1,20 @@
 {
-  "name": "Export to Cityscapes",
+  "name": "Invite users to team from CSV",
   "type": "app",
   "categories": [
-    "export"
+    "User Management"
   ],
-  "description": "Converts Supervisely annotations to Cityscapes format and prepares downloadable tar archive",
-  "docker_image": "supervisely/base-py-sdk:6.1.80",
-  "main_script": "src/main.py",
-  "modal_template": "",
-  "modal_template_state": {},
-  "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/Ntpqy9x.png",
+  "description": "Invite users to team",
+  "docker_image": "supervisely/base-py-sdk:6",
+  "main_script": "src/add_users_to_team.py",
+  "task_location": "application_sessions",
+  "icon": "https://img.icons8.com/color/96/000000/add-user-group-woman-man-skin-type-7.png",
   "icon_background": "#FFFFFF",
+  "headless": true,
   "context_menu": {
     "target": [
-      "images_project"
-    ],
-    "context_root": "Download as"
+      "files_file"
+    ]
   },
-  "poster": "https://i.imgur.com/zlpoZpK.png"
+  "poster": "https://i.imgur.com/3Ty8mqK.png"
 }
