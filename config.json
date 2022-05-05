@@ -1,22 +1,12 @@
 {
-  "name": "Merge datasets",
-  "type": "app",
+  "name": "Action Recognition",
+  "type": "collection",
   "categories": [
-    "Data Management"
+    "retail"
   ],
-  "description": "Merge selected datasets with images or videos into a single one",
-  "docker_image": "supervisely/base-py-sdk:6.1.73",
-  "main_script": "src/merge_datasets.py",
-  "gui_template": "src/gui.html",
-  "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/DG3URUW.png",
+  "description": "Label and Review videos for Action Recognition task",
+  "icon": "https://imgur.com/kMbFKxN.png",
   "icon_background": "#FFFFFF",
-  "context_menu": {
-    "target": [
-      "images_project",
-      "videos_project"
-    ]
-  },
-  "instance_version": "6.4.14",
-  "poster": "https://i.imgur.com/QF7FTZn.png"
+  "icon_cover": false,
+  "poster": "https://imgur.com/CBAvlra.png"
 }
