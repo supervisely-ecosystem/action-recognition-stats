@@ -1,20 +1,16 @@
 {
-  "name": "Create users from CSV",
+  "name": "App Template (No GUI)",
   "type": "app",
   "categories": [
-    "User Management"
+    "development"
   ],
-  "description": "Only instance admin has permissions to run it",
+  "description": "template for your headless app",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/create_users_from_csv.py",
-  "task_location": "application_sessions",
-  "icon": "https://img.icons8.com/color/96/000000/group.png",
+  "main_script": "src/my_super_script.py",
+  "task_location": "workspace_tasks",
+  "isolate": true,
+  "icon": "https://img.icons8.com/color/96/000000/console.png",
   "icon_background": "#FFFFFF",
   "headless": true,
-  "context_menu": {
-    "target": [
-      "files_file"
-    ]
-  },
-  "poster": "https://i.imgur.com/I3gDQn7.png"
+  "poster": "https://i.imgur.com/XO1LGw9.png"
 }
