@@ -1,26 +1,22 @@
 {
-  "name": "Convert Supervisely to YOLO v5 format",
+  "name": "Synthetic retail products",
   "type": "app",
   "categories": [
-    "yolov5",
-    "convert format"
+    "synthetic data"
   ],
-  "description": "Transform project to YOLO v5 format and prepares tar archive for download",
-  "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/convert_sly_to_yolov5.py",
-  "modal_template": "src/modal.html",
-  "modal_template_state": {},
+  "description": "Generate synthetic data for classification of retail products on grocery shelves",
+  "docker_image": "supervisely/base-py-sdk:6.1.86",
+  "main_script": "src/main.py",
   "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
   "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/pz3eSzx.png",
+  "icon": "https://img.icons8.com/color/100/000000/sauce-bottle.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
       "images_project"
     ],
-    "context_root": "Download as"
+    "context_category": "Synthetic data"
   },
-  "poster": "https://i.imgur.com/UeObs7R.png"
+  "poster": "https://i.imgur.com/nOVbVMv.png"
 }
