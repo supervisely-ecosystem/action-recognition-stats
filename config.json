@@ -1,26 +1,29 @@
 {
-  "name": "Export to MOT",
+  "name": "Export volumes in Supervisely format",
   "type": "app",
   "categories": [
-    "convert format"
+    "export"
   ],
-  "description": "Converts Supervisely to MOT format and prepares tar archive for download",
-  "docker_image": "supervisely/base-py-sdk:6.1.94",
+  "description": "Export project or dataset in Supervisely volumes format",
+  "docker_image": "supervisely/base-py-sdk:6.2.8",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "shapes": true
+    "downloadVolumes": true,
+    "convertSurfaceToMask": true,
+    "downloadAnnotations": true
   },
   "task_location": "workspace_tasks",
   "isolate": true,
   "headless": true,
-  "icon": "https://i.imgur.com/ihJKVt4.png",
-  "icon_cover": true,
+  "icon": "https://img.icons8.com/color/100/000000/xray.png",
+  "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
-      "videos_project"
+      "volumes_project",
+      "volumes_dataset"
     ],
     "context_root": "Download as"
   },
-  "poster": "https://i.imgur.com/wDdLM8H.png"
+  "poster": "https://imgur.com/7IHY0Gs.png"
 }
