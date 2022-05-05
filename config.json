@@ -1,29 +1,31 @@
 {
-  "name": "Unpack key value tags",
+  "name": "ilastik pixel classification",
   "type": "app",
   "categories": [
-    "Transform",
-    "Tag"
+    "labeling"
   ],
-  "description": "Rename \"Key:Value\" tags to key_value (fruit: lemon -> fruit_lemon)",
-  "docker_image": "supervisely/base-py-sdk:6.1.90",
+  "description": "Image Pixel Classification using ilastik",
+  "docker_image": "supervisely/ilastik:6.1.88",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
+  "gui_template": "src/gui.html",
   "modal_template_state": {
-    "tags": [],
-    "keepTags": "keep",
-    "inputProjectName": ""
+    "projectMode": "Create new Project",
+    "classes": [],
+    "classifierPath": ""
   },
-  "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/0lNSt9M.png",
+  "task_location": "application_sessions",
+  "icon": "https://i.imgur.com/pIz4rq9.png",
   "icon_background": "#FFFFFF",
+  "isolate": true,
+  "instance_version": "6.4.20",
+  "integrated_into": [
+    "image_annotation_tool"
+  ],
   "context_menu": {
     "target": [
       "images_project"
-    ],
-    "context_category": "Transform"
+    ]
   },
-  "poster": "https://i.imgur.com/Z71cekZ.png"
+  "poster": "https://i.imgur.com/ok6t92G.png"
 }
