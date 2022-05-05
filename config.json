@@ -1,16 +1,21 @@
 {
-  "name": "App Template (No GUI)",
+  "name": "Copy image tags to objects",
   "type": "app",
   "categories": [
-    "development"
+    "tag"
   ],
-  "description": "template for your headless app",
+  "description": "Tags and object classes can be customized",
   "docker_image": "supervisely/base-py-sdk:6",
-  "main_script": "src/my_super_script.py",
+  "main_script": "src/main.py",
+  "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
-  "isolate": true,
-  "icon": "https://img.icons8.com/color/96/000000/console.png",
+  "icon": "https://i.imgur.com/bi0gqDJ.png",
   "icon_background": "#FFFFFF",
-  "headless": true,
-  "poster": "https://i.imgur.com/XO1LGw9.png"
+  "disable_stop": true,
+  "context_menu": {
+    "target": [
+      "images_project"
+    ]
+  },
+  "poster": "https://i.imgur.com/fAO66c3.png"
 }
