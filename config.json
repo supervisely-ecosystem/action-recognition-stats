@@ -1,25 +1,24 @@
 {
-  "name": "Import DAVIS",
+  "name": "Tags to image URLs",
   "type": "app",
   "categories": [
-    "Import"
+    "report"
   ],
-  "description": "Import DAVIS to Supervisely",
-  "docker_image": "supervisely/base-py-sdk:6.1.81",
+  "description": "Saves tag to images mapping to a json file",
+  "docker_image": "supervisely/base-py-sdk:6.1.86",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "davisYear": "2017",
-    "resolution": "480p",
-    "type": "Unsupervised",
-    "currDataset": [
-      "TrainVal"
-    ]
+    "saveMode": "both"
   },
   "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/tdrAo8j.png",
+  "icon": "https://i.imgur.com/ijjjtx7.png",
   "icon_background": "#FFFFFF",
-  "poster": "https://i.imgur.com/DTYFKGA.png"
+  "context_menu": {
+    "target": [
+      "images_project"
+    ],
+    "context_root": "Report"
+  },
+  "poster": "https://i.imgur.com/KtnbrQe.png"
 }
