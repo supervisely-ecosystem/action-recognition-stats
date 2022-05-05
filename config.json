@@ -1,26 +1,28 @@
 {
-  "name": "Split videos",
+  "name": "Export activity as csv",
   "type": "app",
   "categories": [
-    "Videos"
+    "report",
+    "labeling job",
+    "member",
+    "export"
   ],
-  "description": "Split videos",
-  "docker_image": "supervisely/base-py-sdk:6",
+  "description": "Download activity as csv file",
+  "docker_image": "supervisely/base-py-sdk:6.1.95",
   "main_script": "src/main.py",
-  "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "videoSplitter": "time"
-  },
   "task_location": "workspace_tasks",
-  "icon": "https://i.imgur.com/L25Giwq.png",
+  "icon": "https://i.imgur.com/pJEJ5zP.png",
   "icon_background": "#FFFFFF",
-  "isolate": true,
-  "headless": true,
   "context_menu": {
     "target": [
+      "team",
+      "images_project",
       "videos_project",
-      "videos_dataset"
-    ]
+      "point_cloud_project",
+      "team_member",
+      "labeling_job"
+    ],
+    "context_root": "Report"
   },
-  "poster": "https://i.imgur.com/vYGZLho.png"
+  "poster": "https://i.imgur.com/1C2S0T5.png"
 }
