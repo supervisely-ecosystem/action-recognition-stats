@@ -1,27 +1,27 @@
 {
-  "name": "Export to Supervisely format",
+  "name": "Export as masks",
   "type": "app",
   "categories": [
-    "export"
+    "Export"
   ],
-  "description": "images and JSON annotations",
-  "docker_image": "supervisely/base-py-sdk:6.8.4",
-  "main_script": "src/main.py",
+  "description": "For semantic segmentation task",
+  "docker_image": "supervisely/base-py-sdk:6.1.80",
+  "main_script": "src/export_as_masks.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "download": "all",
-    "fixExtension": false
+    "humanMasks": true,
+    "machineMasks": true,
+    "thickness": 2
   },
   "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://i.imgur.com/1hqGMyg.png",
+  "icon": "https://i.imgur.com/Dz0f248.png",
   "icon_background": "#FFFFFF",
+  "headless": true,
   "context_menu": {
     "target": [
       "images_project"
     ],
     "context_root": "Download as"
   },
-  "poster": "https://i.imgur.com/9eRexuy.png"
+  "poster": "https://i.imgur.com/nJGEa4m.png"
 }
