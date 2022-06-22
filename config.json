@@ -6,7 +6,7 @@
     "visualization",
     "exploration",
     "statistics",
-    "visualization-stats"
+    "visualization stats"
   ],
   "description": "Analyse videos labeled for Action Recognition task",
   "docker_image": "supervisely/base-py-sdk:6.3.0",
