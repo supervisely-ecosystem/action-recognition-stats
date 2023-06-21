@@ -1,5 +1,5 @@
 <div align="center" markdown>
-<img src="https://imgur.com/8Q7ldTU.png"/>
+<img src="media/68747470733a2f2f696d6775722e636f6d2f3851376c6454552e706e67.png"/>
 
 
 # Action Recognition Stats Tool
@@ -34,10 +34,10 @@ Application key points:
 # How to Run
 
 ### 1. Add [Action Recognition Stats Tool](https://ecosystem.supervise.ly/apps/action-recognition-stats) to your team from Ecosystem.
-<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/action-recognition-stats" src="https://imgur.com/TZpzszz.png" width="350px" style='padding-bottom: 20px'/>  
+<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/action-recognition-stats" src="media/68747470733a2f2f696d6775722e636f6d2f545a707a737a7a2e706e67.png" width="350px" style='padding-bottom: 20px'/>  
 
 ### 2. Run app from the context menu of Videos Project:
-<img src="https://imgur.com/TMgacQE.png" width="70%"/>
+<img src="media/68747470733a2f2f696d6775722e636f6d2f544d67616351452e706e67.png" width="70%"/>
 
 # Common Apps
 
@@ -45,7 +45,7 @@ This application cooperate with next Supervisely Applications ⬇️
 
 - [Action Recognition Labeling](https://ecosystem.supervise.ly/apps/action-recognition-labeling) — use to label data
 
-    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/action-recognition-labeling" src="https://imgur.com/3aCwsQ0.png" width="350px"/>
+    <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/action-recognition-labeling" src="media/68747470733a2f2f696d6775722e636f6d2f336143777351302e706e67.png" width="350px"/>
 
 
 # Demo
@@ -55,5 +55,5 @@ This application cooperate with next Supervisely Applications ⬇️
 
 # Screenshot
 
-<img src="https://imgur.com/BEgvRzD.png" width="100%" style='padding-top: 10px'>
+<img src="media/68747470733a2f2f696d6775722e636f6d2f42456776527a442e706e67.png" width="100%" style='padding-top: 10px'>
 
