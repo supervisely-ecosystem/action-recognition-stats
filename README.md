@@ -56,4 +56,4 @@ This application cooperate with next Supervisely Applications ⬇️
 # Screenshot
 
 <img src="media/68747470733a2f2f696d6775722e636f6d2f42456776527a442e706e67.png" width="100%" style='padding-top: 10px'>
-
+ 
