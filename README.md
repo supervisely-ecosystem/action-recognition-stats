@@ -50,7 +50,7 @@ This application cooperate with next Supervisely Applications ⬇️
 
 # Demo
 <a data-key="sly-embeded-video-link" href="https://youtu.be/ZC6jIvrWD8c" data-video-code="ZC6jIvrWD8c">
-    <img src="https://imgur.com/mthq6n9.png" alt="SLY_EMBEDED_VIDEO_LINK"  width="70%">
+    <img src="media/demo.png" alt="SLY_EMBEDED_VIDEO_LINK"  width="70%">
 </a>
 
 # Screenshot
