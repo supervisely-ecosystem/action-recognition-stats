@@ -9,7 +9,7 @@
         "visualization stats"
     ],
     "description": "Analyse videos labeled for Action Recognition task",
-    "docker_image": "supervisely/collaboration:0.0.1",
+    "docker_image": "supervisely/visualization-stats:0.0.1",
     "main_script": "src/main.py",
     "gui_template": "src/gui.html",
     "task_location": "workspace_tasks",
