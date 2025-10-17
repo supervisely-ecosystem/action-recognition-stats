@@ -12,7 +12,7 @@
   <a href="#Screenshot">Sceenshot</a>
 </p>
 
-[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](../../../../supervisely-ecosystem/action-recognition-stats)
+[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervisely.com/apps/supervisely-ecosystem/action-recognition-stats)
 [![](https://img.shields.io/badge/slack-chat-green.svg?logo=slack)](https://supervisely.com/slack)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/supervisely-ecosystem/action-recognition-stats)
 [![views](https://app.supervisely.com/img/badges/views/supervisely-ecosystem/action-recognition-stats.png)](https://supervisely.com)
@@ -33,7 +33,7 @@ Application key points:
 
 # How to Run
 
-### 1. Add [Action Recognition Stats Tool](../../../../supervisely-ecosystem/action-recognition-stats) to your team from Ecosystem.
+### 1. Add [Action Recognition Stats Tool](https://ecosystem.supervisely.com/apps/action-recognition-stats) to your team from Ecosystem.
 <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/action-recognition-stats" src="https://imgur.com/TZpzszz.png" width="350px" style='padding-bottom: 20px'/>  
 
 ### 2. Run app from the context menu of Videos Project:
@@ -43,7 +43,7 @@ Application key points:
 
 This application cooperate with next Supervisely Applications ⬇️ 
 
-- [Action Recognition Labeling](../../../../supervisely-ecosystem/action-recognition-labeling) — use to label data
+- [Action Recognition Labeling](https://ecosystem.supervisely.com/apps/action-recognition-labeling) — use to label data
 
     <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/action-recognition-labeling" src="https://imgur.com/3aCwsQ0.png" width="350px"/>
 
