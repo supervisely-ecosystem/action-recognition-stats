@@ -1,29 +1,29 @@
 {
-    "name": "Action Recognition Stats Tool",
-    "type": "app",
-    "categories": [
-        "videos",
-        "visualization",
-        "exploration",
-        "statistics",
-        "visualization stats"
+  "name": "Action Recognition Stats Tool",
+  "type": "app",
+  "categories": [
+    "videos",
+    "visualization",
+    "exploration",
+    "statistics",
+    "visualization stats"
+  ],
+  "description": "Analyse videos labeled for Action Recognition task",
+  "docker_image": "supervisely/base-py-sdk-hardened:6.73.564",
+  "main_script": "src/main.py",
+  "gui_template": "src/gui.html",
+  "task_location": "workspace_tasks",
+  "need_gpu": false,
+  "gpu": "preferred",
+  "icon": "https://img.icons8.com/color/96/000000/rebalance-portfolio--v1.png",
+  "icon_cover": false,
+  "icon_background": "#FFFFFF",
+  "instance_version": "6.15.60",
+  "context_menu": {
+    "target": [
+      "videos_project"
     ],
-    "description": "Analyse videos labeled for Action Recognition task",
-    "docker_image": "supervisely/visualization-stats:6.73.564",
-    "main_script": "src/main.py",
-    "gui_template": "src/gui.html",
-    "task_location": "workspace_tasks",
-    "need_gpu": false,
-    "gpu": "preferred",
-    "icon": "https://img.icons8.com/color/96/000000/rebalance-portfolio--v1.png",
-    "icon_cover": false,
-    "icon_background": "#FFFFFF",
-    "instance_version": "6.15.60",
-    "context_menu": {
-        "target": [
-            "videos_project"
-        ],
-        "context_category": "Action Recognition"
-    },
-    "poster": "https://imgur.com/8Q7ldTU.png"
+    "context_category": "Action Recognition"
+  },
+  "poster": "https://imgur.com/8Q7ldTU.png"
 }
