@@ -7,7 +7,7 @@ import sly_globals as g
 import sly_functions as f
 import sly_constants as c
 
-import supervisely_lib as sly
+import supervisely as sly
 
 from functools import lru_cache
 
