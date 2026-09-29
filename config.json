@@ -9,7 +9,7 @@
     "visualization stats"
   ],
   "description": "Analyse videos labeled for Action Recognition task",
-  "docker_image": "supervisely/base-py-sdk:6.73.564",
+  "docker_image": "supervisely/base-py-sdk:6.74.34",
   "main_script": "src/main.py",
   "gui_template": "src/gui.html",
   "task_location": "workspace_tasks",
@@ -18,7 +18,7 @@
   "icon": "https://img.icons8.com/color/96/000000/rebalance-portfolio--v1.png",
   "icon_cover": false,
   "icon_background": "#FFFFFF",
-  "instance_version": "6.15.60",
+  "instance_version": "6.17.22",
   "context_menu": {
     "target": [
       "videos_project"
